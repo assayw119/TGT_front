@@ -21,7 +21,7 @@ export default Navbar;
 const Navbar_style = styled.div`
     position: fixed;
     background: white;
-    width: 5.5%;
+    width: 6%;
     height: 100%;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
