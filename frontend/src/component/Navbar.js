@@ -1,16 +1,29 @@
 import React from "react";
 import styled, { css } from "styled-components";
+import { NavLink, Route } from "react-router-dom";
 function Navbar(props) {
     return (
         <>
             <Navbar_style>
-                <img src="images/logo.png" style={image_style} />
-                <img src="images/line.png" style={line} />
-                <img src="images/Mainpage.png" style={icon} />
-                <img src="images/Clublistpage.png" style={icon} />
-                <img src="images/Clubpage.png" style={icon} />
-                <img src="images/Writepage.png" style={icon} />
-                <img src="images/logout.png" style={logout} />
+                <NavLink to="/">
+                    <img src="images/logo.png" style={image_style} />
+                    <img src="images/line.png" style={line} />
+                </NavLink>
+                <NavLink to="/">
+                    <img src="images/Mainpage.png" style={icon} />
+                </NavLink>
+                <NavLink to="/Post_list">
+                    <img src="images/Clublistpage.png" style={icon} />
+                </NavLink>
+                <NavLink to="/Clubpage">
+                    <img src="images/Clubpage.png" style={icon} />
+                </NavLink>
+                <NavLink to="/Writepage">
+                    <img src="images/Writepage.png" style={icon} />
+                </NavLink>
+                <NavLink to="/Logout">
+                    <img src="images/logout.png" style={logout} />
+                </NavLink>
             </Navbar_style>
         </>
     );
