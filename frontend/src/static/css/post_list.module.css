@@ -59,8 +59,9 @@ hr {
 }
 
 .club_title {
-    font-size: 1.3vw;
     font-weight: 700;
+    font-size: 1.1vw;
+    line-height: 26px;
 }
 .club_intro {
     color: #000000;
