@@ -65,6 +65,7 @@
     font-weight: 700;
  
 }
+
 .login_box{
     display: flex;
     flex-direction: column;
@@ -133,9 +134,42 @@
     display: flex;
     padding: 1%;
     align-items: center;
+    border-bottom: 1px solid #CDCDCD;
 }
 .loginpage_icon{
     width: 27px;
     height: 27px;
     padding-left: 1.5%;
+}
+/* 회원가입 page css */
+.login_name_2{
+    color: black;
+    background-color: #CDCDCD;
+    font-size: 15px;
+    width: 25%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-weight: 700;
+    
+}
+
+.signup_name_2{
+    color: black;
+    background-color: white;
+    font-size: 15px;
+    width: 25%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-weight: 700;
+ 
 }

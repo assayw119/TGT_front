@@ -17,7 +17,7 @@ function App() {
                     <Route path="/Writepage" element={<Writepage />}></Route>
                     <Route path="/Login" element={<Login />}></Route>
                     <Route path="/Logout" element={<Logout />}></Route>
-                    <Route path="/Signup" element={<Logout />}></Route>
+                    <Route path="/Signup" element={<Signup />}></Route>
                 </Routes>
             </BrowserRouter>
         </div>
