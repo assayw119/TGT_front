@@ -5,6 +5,7 @@ import Clubpage from "./routes/Clubpage";
 import Login from "./routes/Login";
 import Logout from "./routes/Logout";
 import Writepage from "./routes/Writepage";
+import Signup from "./routes/Signup";
 function App() {
     return (
         <div className="App">
@@ -16,6 +17,7 @@ function App() {
                     <Route path="/Writepage" element={<Writepage />}></Route>
                     <Route path="/Login" element={<Login />}></Route>
                     <Route path="/Logout" element={<Logout />}></Route>
+                    <Route path="/Signup" element={<Logout />}></Route>
                 </Routes>
             </BrowserRouter>
         </div>

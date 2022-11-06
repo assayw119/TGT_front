@@ -4,8 +4,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 50%;
-    margin-top: 10%;
+    height: 80%;
     
 }
 .login_logo{
@@ -14,11 +13,11 @@
     
 }
 .login_big_logo{
-    font-weight: bolder;
     font-size: 50px;   
     align-items: center;
     justify-content: center;
     display: flex;
+    font-weight: 900;
 }
 .login_small_logo{
     font-weight: bold;
@@ -89,9 +88,10 @@
     justify-content: center;
     display: flex;
     flex-direction: column;
-    margin-top: 4%;
+    -webkit-box-shadow: 1px 7px 5px -1px #CDCDCD; 
+    box-shadow: 1px 7px 5px -1px #CDCDCD;
     border: 2px solid #CDCDCD;
-    margin: 5%;
+    margin: 6%;
 
 }
 
@@ -101,7 +101,7 @@
     border: none;
     font-size: 14px;
     font-weight: 400;
-    padding: 4%;
+    padding: 3%;
 
 }
 .input::placeholder{
@@ -122,4 +122,20 @@
 .login_btn_btn{
     display: flex;
     justify-content: center;
+}
+.login_id{
+    display: flex;
+    padding: 1%;
+    border-bottom: 1px solid #CDCDCD;
+    align-items: center;
+}
+.login_pwd{
+    display: flex;
+    padding: 1%;
+    align-items: center;
+}
+.loginpage_icon{
+    width: 27px;
+    height: 27px;
+    padding-left: 1.5%;
 }
