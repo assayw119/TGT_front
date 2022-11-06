@@ -1,0 +1,29 @@
+@font-face {
+  font-family: 'DM Sans';
+  src: url('./font/gmarket_medium.TTF');
+}
+
+html,
+body {
+  margin: 0;
+  background-color: black;
+  height: 100%;
+  font-family: 'DM Sans', sans-serif;
+}
+
+#root {
+  height: 100%;
+}
+
+.App {
+  height: 100%;
+}
+
+.container {
+  display: grid;
+  box-sizing: border-box;
+  height: 100%;
+  margin-left: 6%;
+  padding: 3% 12%;
+  gap: 25px;
+}
