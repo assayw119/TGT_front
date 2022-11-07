@@ -15,7 +15,7 @@
     align-items: center;
     background-color: white;
     height: 80%;
-    margin-left: 10%;
+    margin-left: 13%;
     margin-right: 4%;
     flex-direction: column;
     border-radius: 10px;
@@ -95,6 +95,10 @@
 .write_box{
     margin-top: 1%;
     margin-bottom: 1%;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
 }
 .enroll_btn {
     background-color: #ff9900;
@@ -113,7 +117,8 @@
     width: 100%;
   }
   .wri_box_box{
-    width: 100%;
+    display: flex;
+
     height: 80px;
     background-color: #E9E9E9;
     outline: none;
