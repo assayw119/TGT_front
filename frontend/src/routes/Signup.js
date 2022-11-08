@@ -1,7 +1,17 @@
 import React from "react";
 import "../static/css/login.css";
+import { useNavigate } from 'react-router-dom';
+
 
 function Signup(props) {
+    const navigate = useNavigate();
+    const onClickLogin = () => {
+        navigate(`/Login`);
+    };
+    
+    const onClickSignup = () => {
+        navigate(`/Signup`);
+    };
     return (
         <>
             
@@ -18,11 +28,11 @@ function Signup(props) {
 
                 <section className="login_container">
                     <div className="login_name_choice">
-                        <div className="login_name_2">
+                        <div className="login_name_2" onClick={onClickLogin}>
                             로그인
                         </div>
 
-                        <div className="signup_name_2">
+                        <div className="signup_name_2" onClick={onClickSignup}>
                             회원가입
                         </div>
                     </div>
