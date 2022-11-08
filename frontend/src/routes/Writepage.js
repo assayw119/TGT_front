@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../component/Navbar';
 import '../static/css/writepage.css';
 
+
 function Writepage(props) {
   return (
     <>
@@ -17,14 +18,23 @@ function Writepage(props) {
                 className="wri_title"
                 placeholder="제목을 입력해주세요."
               />
+            
+          
+              <select className="select">
+                <option disabled selected>카테고리 선택</option>
+                <option value='0'>취미/교양</option>
+                <option value='1'>스터디</option>
+                <option value='2'>일상</option>
+                <option value='3'>운동</option>
+                <option value='4'>기타</option>
+              </select>
 
-              <div>카테고리 선택</div>
             </div>
 
             <div className="write_intro">
               <input
                 type="text"
-                className="wri_title"
+                className="wri_title_2"
                 placeholder="클럽 한줄소개를 입력해주세요."
               />
             </div>
@@ -37,22 +47,23 @@ function Writepage(props) {
                   alt=""
                 />
                 <input
-                  type="text"
+                  type="date"
                   className="wri_deadline"
-                  placeholder="2022.00.00"
                 />
 
                 <div>-</div>
 
                 <input
-                  type="text"
+                  type="date"
                   className="wri_deadline"
-                  placeholder="2022.00.00"
                 />
               </div>
 
               <img src="images/post_picture.png" className="post_icon" alt="" />
-              <div>대표사진 추가부분</div>
+              <label className="input-file-button" for="input-file">
+                대표사진 추가
+              </label>
+              <input type="file" accept="image/*" id="input-file" style={{display:"none"}}/> 
             </section>
 
             <div className="write_box">
