@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../static/css/login.css';
 import { useNavigate } from 'react-router-dom';
-
+import axios from 'axios';
 function Signup(props) {
   const [inputs, setInputs] = useState({
     username: '',
@@ -29,6 +29,18 @@ function Signup(props) {
 
   const onClickSignup = () => {
     navigate(`/Signup`);
+  };
+
+  const post_signup = async () => {
+    try {
+      await axios
+        .post('http://127.0.0.1:8000/accounts/regist', inputs)
+        .then(res => {
+          console.log(res.data);
+        });
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <>
@@ -101,7 +113,9 @@ function Signup(props) {
             </div>
 
             <div className="login_btn_btn">
-              <button className="login_btn">회원가입</button>
+              <button className="login_btn" onClick={post_signup}>
+                회원가입
+              </button>
             </div>
           </div>
         </section>
