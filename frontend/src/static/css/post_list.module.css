@@ -31,17 +31,17 @@ hr {
 
 /* Club_introduce 컴포넌트 */
 .club_category {
-  font-family: 'DM Sans';
+  font-family: 'DMSans';
   font-size: 0.8vw;
   box-sizing: border-box;
   background: #ffcc80;
-  border-radius: 6px;
+  border-radius: 1vmin;
   width: 6vw;
-  height: 3vh;
-  text-align: center;
-  padding: 0.5vh 1vw;
-  margin: 30px 15px 15px 15px;
-  font-weight: 600;
+  height: 3vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2vmin;
 }
 
 .club_image {
@@ -51,12 +51,12 @@ hr {
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
-  width: 90%;
+  width: 100%;
   height: 6vw;
 }
 
 .club_contents {
-  margin: 15px;
+  margin: 1.8vmin 0vmin;
 }
 
 .club_title {
@@ -74,7 +74,7 @@ hr {
 
 .club_detail {
   display: flex;
-  margin-top: 1.5vw;
+  margin-top: 5vmin;
   cursor: pointer;
   color: #ff2e00;
   font-weight: 700;
@@ -86,5 +86,5 @@ hr {
   display: flex;
   text-align: right;
   float: right;
-  margin-top: 1.5vw;
+  margin-top: 4vmin;
 }

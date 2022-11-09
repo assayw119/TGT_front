@@ -1,8 +1,9 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable react/jsx-pascal-case */
 import React from 'react';
-import styled, { css } from 'styled-components';
-import { NavLink, Route } from 'react-router-dom';
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 function Navbar(props) {
   return (
     <>
@@ -12,19 +13,23 @@ function Navbar(props) {
           <img src="images/line.png" style={line} />
         </NavLink>
         <NavLink to="/">
-          <img src="images/Mainpage.png" style={icon} />
+          <img src="images/Mainpage.png" style={icon} className="mainpage" />
         </NavLink>
         <NavLink to="/Postlist">
-          <img src="images/Clublistpage.png" style={icon} />
+          <img
+            src="images/Clublistpage.png"
+            style={icon}
+            className="postlist"
+          />
         </NavLink>
         <NavLink to="/Clubpage">
-          <img src="images/Clubpage.png" style={icon} />
+          <img style={icon} src="images/Clubpage.png" className="clubpage" />
         </NavLink>
         <NavLink to="/Writepage">
-          <img src="images/Writepage.png" style={icon} />
+          <img style={icon} src="images/Writepage.png" className="writepage" />
         </NavLink>
         <NavLink to="/Logout">
-          <img src="images/logout.png" style={logout} />
+          <img src="images/logout.png" style={logout} className="logout" />
         </NavLink>
       </Navbar_style>
     </>

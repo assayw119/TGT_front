@@ -2,11 +2,14 @@ import React from 'react';
 import Navbar from '../component/Navbar';
 import '../static/css/writepage.css';
 
-
 function Writepage(props) {
   return (
     <>
       <Navbar />
+      <style>
+        {`.postlist,.clubpage,.mainpage{opacity:0.2}
+      `}
+      </style>
       <div className="container">
         <div className="writepage_container_container">
           <div className="write_logo">클럽모집글쓰기</div>
@@ -18,17 +21,17 @@ function Writepage(props) {
                 className="wri_title"
                 placeholder="제목을 입력해주세요."
               />
-            
-          
-              <select className="select">
-                <option disabled selected>카테고리 선택</option>
-                <option value='0'>취미/교양</option>
-                <option value='1'>스터디</option>
-                <option value='2'>일상</option>
-                <option value='3'>운동</option>
-                <option value='4'>기타</option>
-              </select>
 
+              <select className="select">
+                <option disabled selected>
+                  카테고리 선택
+                </option>
+                <option value="0">취미/교양</option>
+                <option value="1">스터디</option>
+                <option value="2">일상</option>
+                <option value="3">운동</option>
+                <option value="4">기타</option>
+              </select>
             </div>
 
             <div className="write_intro">
@@ -46,24 +49,23 @@ function Writepage(props) {
                   className="post_icon"
                   alt=""
                 />
-                <input
-                  type="date"
-                  className="wri_deadline"
-                />
+                <input type="date" className="wri_deadline" />
 
                 <div>-</div>
 
-                <input
-                  type="date"
-                  className="wri_deadline"
-                />
+                <input type="date" className="wri_deadline" />
               </div>
 
               <img src="images/post_picture.png" className="post_icon" alt="" />
               <label className="input-file-button" for="input-file">
                 대표사진 추가
               </label>
-              <input type="file" accept="image/*" id="input-file" style={{display:"none"}}/> 
+              <input
+                type="file"
+                accept="image/*"
+                id="input-file"
+                style={{ display: 'none' }}
+              />
             </section>
 
             <div className="write_box">

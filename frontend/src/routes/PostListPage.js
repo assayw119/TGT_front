@@ -15,6 +15,10 @@ function PostListPage() {
   return (
     <>
       <Navbar />
+      <style>
+        {`.mainpage,.clubpage,.writepage{opacity:0.2}
+      `}
+      </style>
       <div className="post_list_container container">
         <div className="post_list_item">
           <div className={style.club_list}>

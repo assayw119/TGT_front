@@ -10,6 +10,10 @@ function Clubpage(props) {
   return (
     <>
       <Navbar />
+      <style>
+        {`.postlist,.mainpage,.writepage{opacity:0.2}
+      `}
+      </style>
       <div className="clubpage_container container">
         <div className="clubpage_item"></div>
         <div className="clubpage_item"></div>
