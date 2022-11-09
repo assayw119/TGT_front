@@ -1,9 +1,3 @@
-@font-face {
-  font-family: 'DM Sans';
-  src: url('../font/gmarket_medium.TTF');
-  
-}
-
 .login_container_container {
   justify-content: center;
   justify-items: center;
@@ -13,20 +7,21 @@
   height: 80%;
 }
 .login_logo {
-  font-family: 'DM Sans';
+  font-family: 'logo';
   color: white;
   width: 60%;
 }
 .login_big_logo {
-  font-family: 'DM Sans';
+  font-family: 'logo';
   font-size: 50px;
   align-items: center;
   justify-content: center;
   display: flex;
   font-weight: 900;
+  letter-spacing: -10px;
 }
 .login_small_logo {
-  font-family: 'DM Sans';
+  font-family: 'DMSans';
   font-weight: bold;
   font-size: 23px;
   align-items: center;
@@ -80,7 +75,7 @@
   display: flex;
   width: 100%;
   justify-content: center;
-  cursor:pointer;
+  cursor: pointer;
 }
 .login_box {
   display: flex;
@@ -122,10 +117,14 @@
   font-weight: 700;
   margin-bottom: 5%;
   padding: 2%;
+  cursor: pointer;
+  font-family: 'DMSans';
 }
 .login_btn_btn {
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 }
 .login_id {
   display: flex;

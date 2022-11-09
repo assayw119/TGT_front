@@ -3,6 +3,10 @@
   src: url('./font/gmarket_medium.TTF');
 }
 
+@font-face {
+  font-family: 'logo';
+  src: url('./font/LexendZetta-Bold.ttf');
+}
 html,
 body {
   margin: 0;
