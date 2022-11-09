@@ -5,14 +5,23 @@ import { useState } from 'react';
 import Calendar from 'react-calendar';
 import '../static/css/calendar.css';
 import moment from 'moment';
+import Info from '../component/Info';
 
 function Mainpage(props) {
   const [value, onChange] = useState(new Date());
+
   return (
     <>
       <Navbar />
+      <style>
+        {`.postlist,.clubpage,.writepage{opacity:0.2}
+      `}
+      </style>
+
       <div className="mainpage_container container">
-        <div className="item info"></div>
+        <div className="item info">
+          <Info />/
+        </div>
         <div className="item calendar">
           <Calendar
             onChange={onChange}
