@@ -5,7 +5,7 @@ import Calendar from 'react-calendar';
 import '../static/css/calendar.css';
 import moment from 'moment';
 import { useState } from 'react';
-function Clubpage(props) {
+function Clubpage() {
   const [value, onChange] = useState(new Date());
   return (
     <>
