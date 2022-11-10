@@ -28,6 +28,20 @@ function Signup2(props) {
           <div className="login_box">
             <div className="signup2_input">
               <label className="label_style">프로필 사진</label>
+            </div>
+            <div className="profile_image">
+              {image === '' ? (
+                <div className="preview" style={{ opacity: 0.9 }}>
+                  프로필 미리보기
+                </div>
+              ) : (
+                <div
+                  className="preview"
+                  style={{ backgroundImage: `url(${image})` }}
+                ></div>
+              )}
+            </div>
+            <div className="signup2_input">
               <label className="input-file-button" for="input-file">
                 <img
                   src="images/post_picture.png"
@@ -43,18 +57,6 @@ function Signup2(props) {
                 accept="image/*"
                 onChange={addImage}
               />
-            </div>
-            <div className="profile_image">
-              {image === '' ? (
-                <div className="preview" style={{ opacity: 0.9 }}>
-                  프로필 미리보기
-                </div>
-              ) : (
-                <div
-                  className="preview"
-                  style={{ backgroundImage: `url(${image})` }}
-                ></div>
-              )}
             </div>
             <div className="signup2_input" style={{ flexDirection: 'column' }}>
               <label className="label_style">한 줄 소개</label>

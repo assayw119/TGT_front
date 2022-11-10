@@ -220,6 +220,9 @@
 }
 
 .profile_image {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
   width: 10vmin;
   height: 10vmin;
 }
