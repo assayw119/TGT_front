@@ -24,7 +24,7 @@ function Signup(props) {
   }, [inputs]);
   const navigate = useNavigate();
   const onClickLogin = () => {
-    navigate(`/Login`);
+    navigate(`/`);
   };
 
   const onClickSignup = () => {
@@ -36,7 +36,8 @@ function Signup(props) {
       await axios
         .post('http://127.0.0.1:8000/accounts/regist', inputs)
         .then(res => {
-          console.log(res.data);
+          //   console.log(res.data);
+          navigate(`/Signup2`);
         });
     } catch (err) {
       console.log(err);

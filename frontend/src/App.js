@@ -6,18 +6,20 @@ import Login from './routes/Login';
 import Logout from './routes/Logout';
 import Writepage from './routes/Writepage';
 import Signup from './routes/Signup';
+import Signup2 from './routes/Signup2';
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Mainpage />}></Route>
+          <Route path="/Mainpage" element={<Mainpage />}></Route>
           <Route path="/PostList" element={<PostListPage />}></Route>
           <Route path="/Clubpage" element={<Clubpage />}></Route>
           <Route path="/Writepage" element={<Writepage />}></Route>
-          <Route path="/Login" element={<Login />}></Route>
+          <Route path="/" element={<Login />}></Route>
           <Route path="/Logout" element={<Logout />}></Route>
           <Route path="/Signup" element={<Signup />}></Route>
+          <Route path="/Signup2" element={<Signup2 />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
