@@ -25,6 +25,7 @@ function Mainpage_Info({ id, nickname, user_image, content }) {
   return (
     <Container>
       <Profile>
+        {id}
         <div style={image_style}></div>
         <Intro_text>
           <Nickname>{nickname}</Nickname>

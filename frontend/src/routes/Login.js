@@ -35,6 +35,8 @@ function Login(props) {
         .post('http://127.0.0.1:8000/accounts/login', inputs)
         .then(res => {
           localStorage.setItem('token', res.data);
+          axios.defaults.headers.common['Authorization'] = res.data;
+          localStorage.setItem('auth', true); // 로그인 설정
           navigate(`/Mainpage`);
         });
     } catch (err) {
