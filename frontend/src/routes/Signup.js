@@ -24,7 +24,7 @@ function Signup(props) {
   }, [inputs]);
   const navigate = useNavigate();
   const onClickLogin = () => {
-    navigate(`/Login`);
+    navigate(`/`);
   };
 
   const onClickSignup = () => {
