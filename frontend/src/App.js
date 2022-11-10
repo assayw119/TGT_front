@@ -6,6 +6,7 @@ import Login from './routes/Login';
 import Logout from './routes/Logout';
 import Writepage from './routes/Writepage';
 import Signup from './routes/Signup';
+import Signup2 from './routes/Signup2';
 function App() {
   return (
     <div className="App">
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<Login />}></Route>
           <Route path="/Logout" element={<Logout />}></Route>
           <Route path="/Signup" element={<Signup />}></Route>
+          <Route path="/Signup2" element={<Signup2 />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
