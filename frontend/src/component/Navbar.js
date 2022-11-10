@@ -8,11 +8,11 @@ function Navbar(props) {
   return (
     <>
       <Navbar_style>
-        <NavLink to="/">
+        <NavLink to="/Mainpage">
           <img src="images/logo.png" style={image_style} />
           <img src="images/line.png" style={line} />
         </NavLink>
-        <NavLink to="/">
+        <NavLink to="/Mainpage">
           <img src="images/Mainpage.png" style={icon} className="mainpage" />
         </NavLink>
         <NavLink to="/Postlist">
