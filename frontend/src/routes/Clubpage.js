@@ -5,8 +5,8 @@ import Calendar from 'react-calendar';
 import '../static/css/calendar.css';
 import moment from 'moment';
 import { useState } from 'react';
+import Calendar_part from '../component/Calendar';
 function Clubpage() {
-  const [value, onChange] = useState(new Date());
   return (
     <>
       <Navbar />
@@ -18,26 +18,7 @@ function Clubpage() {
         <div className="clubpage_item"></div>
         <div className="clubpage_item"></div>
         <div className="clubpage_item">
-          <Calendar
-            onChange={onChange}
-            locale="en"
-            value={value}
-            format={(locale, date) => date.toLocaleString('en')}
-            formatMonthYear={(locale, date) =>
-              date.toLocaleString('kr', {
-                month: 'numeric',
-                year: 'numeric',
-              })
-            }
-            formatDay={(locale, date) =>
-              date.toLocaleString('en', {
-                day: 'numeric',
-              })
-            }
-            next2Label={null}
-            prev2Label={null}
-            showNeighboringMonth={false}
-          />
+          <Calendar_part />
         </div>
         <div className="clubpage_item"></div>
         <div className="clubpage_item"></div>

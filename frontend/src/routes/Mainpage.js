@@ -3,13 +3,10 @@ import React, { useEffect } from 'react';
 import Navbar from '../component/Navbar';
 import '../static/css/grid.css';
 import { useState } from 'react';
-import Calendar from 'react-calendar';
-import '../static/css/calendar.css';
-import moment from 'moment';
+import Calendar_part from '../component/Calendar';
 import Mainpage_Info from '../component/Mainpage_Info';
 import axios from 'axios';
 function Mainpage(props) {
-  const [value, onChange] = useState(new Date());
   const [profile_info, setProfile] = useState('');
   const [user_club_list, setUser_club_list] = useState('');
   const [user_todo_list, setUser_todo_list] = useState('');
@@ -54,30 +51,7 @@ function Mainpage(props) {
           />
         </div>
         <div className="item calendar">
-          <Calendar
-            onChange={onChange}
-            locale="en"
-            value={value}
-            format={(locale, date) => date.toLocaleString('en')}
-            formatMonthYear={(locale, date) =>
-              date.toLocaleString('kr', {
-                month: 'numeric',
-                year: 'numeric',
-              })
-            }
-            formatDay={(locale, date) =>
-              date.toLocaleString('en', {
-                day: 'numeric',
-              })
-            }
-            next2Label={null}
-            prev2Label={null}
-            showNeighboringMonth={false}
-          />
-          {/* {console.log(moment(value).format('YYYY년 MM월 DD일'))} */}
-          {/* <div className="text-gray-500 mt-4">
-            {moment(value).format('YYYY년 MM월 DD일')}
-          </div> */}
+          <Calendar_part />
         </div>
         <div className="item todo"></div>
         <div className="item club_list"></div>
