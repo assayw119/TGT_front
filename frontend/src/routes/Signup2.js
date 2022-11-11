@@ -42,7 +42,7 @@ function Signup2(props) {
               )}
             </div>
             <div className="signup2_input">
-              <label className="input-file-button" for="input-file">
+              <label className="input-file-button2" for="input-file">
                 <img
                   src="images/post_picture.png"
                   className="post_icon"
