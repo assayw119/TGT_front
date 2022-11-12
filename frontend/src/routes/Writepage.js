@@ -50,7 +50,6 @@ function Writepage(props) {
             },
         })
         .then(function (res) {
-
             navigate("/PostList");
         })
         .catch(function (err) {
