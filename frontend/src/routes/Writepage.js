@@ -2,50 +2,62 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '../component/Navbar';
 import '../static/css/writepage.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { useForm } from "react-hook-form";
 
 function Writepage(props) {
-  const [inputs, setInputs] = useState({
-    title: '',
-    shortintro: '',
-    startdate:'',
-    enddate:'',
-    photo:'',
-    clubintro:'',
-    confirm:'',
+  const navigate = useNavigate();
+  
+  const [form, setForm] = useState({
+    name: '',
+    introduce: '',
+    content:'',
+    howto:'',
+    start_date:'',
+    end_date:'',
+    image:'',
   });
-  const {name, introduce, start_date, end_date, content, category, howto}= inputs;
+
   const onChange = e => {
     const { name, value } = e.target;
-    setInputs({
-      ...inputs,
+    setForm({
+      ...form,
       [name]: value,
     });
-  }; 
-  const [image, setImage] = useState('');
-  useEffect(() => {
-    console.log(image);
-  }, [image]);
-  const addImage = e => {
-    const images = e.target.files;
-    const ImageURL = URL.createObjectURL(images[0]);
-    setImage(ImageURL);
   };
-  useEffect(() => {
-    // console.log(inputs);
-  }, [inputs]);
   
+  //폼 저장된 내용 확인
+  useEffect(() => {
+    // console.log(form);
+  },[form]);
 
-  const post_write = async () => {
-    try {
-      await axios
-        .post('http://127.0.0.1:8000/club/', inputs)
-        .then(res => {
-          console.log(res.data);
+  const Post_club = async (e) => {
+    e.preventDefault();
+    let formData = new FormData();
+
+    formData.append("name", form.name);
+    formData.append("introduce", form.introduce);
+    formData.append("content", form.content);
+    formData.append("howto", form.howto);
+    formData.append("start_date", form.start_date);
+    formData.append("end_date", form.end_date);
+    formData.append("image", form.image);
+
+    await axios
+        .post("http://127.0.0.1:8000/club/", formData, {
+            headers: {
+                "Content-Type": "multipart/form-data",
+            },
+        })
+        .then(function (res) {
+
+            navigate("/PostList");
+        })
+        .catch(function (err) {
+            console.log(err, "post 실패");
         });
-    } catch (err) {
-      console.log(err);
-    }
-  };
+       };
+    
 
   return (
     <>
@@ -65,19 +77,19 @@ function Writepage(props) {
                 className="wri_title"
                 placeholder="제목을 입력해주세요."
                 name="name"
-                value={name}
+                value={form.name}
                 onChange={onChange}
               />
 
-              <select className="select" name="category" value={category} onChange={onChange}>
+              <select className="select" name="category" value={form.category} onChange={onChange}>
                 <option disabled selected>
                   카테고리 선택
                 </option>
-                <option value="0">취미/교양</option>
-                <option value="1">스터디</option>
-                <option value="2">일상</option>
-                <option value="3">운동</option>
-                <option value="4">기타</option>
+                <option value="취미/교양">취미/교양</option>
+                <option value="스터디">스터디</option>
+                <option value="일상">일상</option>
+                <option value="운동">운동</option>
+                <option value="기타">기타</option>
               </select>
             </div>
 
@@ -87,7 +99,7 @@ function Writepage(props) {
                 className="wri_title_2"
                 placeholder="클럽 한줄소개를 입력해주세요."
                 name="introduce"
-                value={introduce}
+                value={form.introduce}
                 onChange={onChange}
               />
             </div>
@@ -103,7 +115,7 @@ function Writepage(props) {
                   type="date" 
                   className="wri_deadline" 
                   name="start_date"
-                  value={start_date}
+                  value={form.start_date}
                   onChange={onChange}
                 />
 
@@ -113,7 +125,7 @@ function Writepage(props) {
                  type="date"
                  className="wri_deadline"
                  name="end_date"
-                 value={end_date}
+                 value={form.end_date}
                  onChange={onChange}
                  />
               </div>
@@ -128,7 +140,8 @@ function Writepage(props) {
                 name="image"
                 id="input-file"
                 style={{ display: 'none' }}
-                onChange={addImage}
+                onChange={onChange}
+                value={form.image}
                 />
             </section>
 
@@ -138,7 +151,7 @@ function Writepage(props) {
                 type="text"
                 className="wri_box_box"
                 name="content"
-                value={content}
+                value={form.content}
                 onChange={onChange}
                 placeholder="함께할 사람들을 모집할 수 있도록 클럽을 통해 달성하고자 하는 목표를 적어주세요."
               />
@@ -150,7 +163,7 @@ function Writepage(props) {
                 type="text"
                 className="wri_box_box"
                 name="howto"
-                value={howto}
+                value={form.howto}
                 onChange={onChange}
                 placeholder="함께 지켜나갈 규칙이 되는 구체적인 인증방법을 적어주세요.
                                     ex) 일주일에 한번 EX포스트 올리기 / 하루달성률 60% 넘기기"
@@ -158,7 +171,7 @@ function Writepage(props) {
             </div>
 
             <div className="write_enroll">
-              <button className="enroll_btn" onClick={post_write}>등록하기</button>
+              <button className="enroll_btn" onClick={Post_club}>등록하기</button>
             </div>
           </div>
         </div>

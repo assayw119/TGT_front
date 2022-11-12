@@ -204,6 +204,7 @@
   right: 10vmin;
   width: 15vmin;
   opacity: 0.5;
+  align-items: center;
 }
 
 .label_style {
