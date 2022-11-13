@@ -23,6 +23,17 @@ function Postdetail({
   const detail_calendar_icon = `${
     process.env.PUBLIC_URL + '/images/detail_calender.png'
   }`;
+  const post_enroll = async () => {
+    try {
+      await axios
+        .post(`http://127.0.0.1:8000/accounts/club_regist/${id}`)
+        .then(res => {
+          console.log(res);
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const imageUrl = 'http://127.0.0.1:8000' + image;
   return (
@@ -46,7 +57,9 @@ function Postdetail({
               <div className="club_c">
                 <section className="club_title2">{title}</section>
                 <div className="detail_btn_btn">
-                  <button className="detail_btn">클럽 가입하기</button>
+                  <button className="detail_btn" onClick={post_enroll()}>
+                    클럽 가입하기
+                  </button>
                 </div>
               </div>
 

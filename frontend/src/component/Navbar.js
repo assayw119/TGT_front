@@ -4,9 +4,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
-import Dropdown from './Dropdown';
+import axios from 'axios';
 function Navbar(props) {
-  //검색창, 모달창 밖에 클릭하면꺼지도록
   const logo = `${process.env.PUBLIC_URL + '/images/logo.png'}`;
   const mainpage = `${process.env.PUBLIC_URL + '/images/Mainpage.png'}`;
   const line_img = `${process.env.PUBLIC_URL + '/images/line.png'}`;
@@ -15,30 +14,14 @@ function Navbar(props) {
   const clublistpage = `${process.env.PUBLIC_URL + '/images/Clublistpage.png'}`;
   const logout_img = `${process.env.PUBLIC_URL + '/images/Logout.png'}`;
 
-  function useOutSideRef(funct, close_button) {
-    const ref = useRef(null);
-    const [searchResult, setsearchResult] = useState([]);
+  const [clubList, setClubList] = useState([]);
 
-    useEffect(() => {
-      function handleClickOutside(event) {
-        if (ref.current && !ref.current.contains(event.target)) {
-          funct(false);
-        } else if (!close_button) {
-          funct(false);
-        } else {
-          funct(true);
-        }
-      }
-      document.addEventListener('click', handleClickOutside);
+  const [modal, setModal] = useState(false);
 
-      return () => {
-        document.removeEventListener('click', handleClickOutside);
-      };
-    });
-
-    return ref;
-  }
-  const [view, setView] = useState(false);
+  useEffect(() => {
+    console.log(modal);
+  }, [modal]);
+  const outside = useRef();
   return (
     <>
       <Navbar_style>
@@ -62,22 +45,14 @@ function Navbar(props) {
             alt="clublist"
           />
         </NavLink>
-        {/* <NavLink to="/Clubpage"> */}
-        <div
-          onClick={() => {
-            setView(!view);
-          }}
-        >
+        <NavLink to="/Clubpage">
           <img
             style={icon}
             src={clubpage}
             className="clubpage"
             alt="clubpage"
           />
-          {view && <Dropdown />}
-        </div>
-
-        {/* </NavLink> */}
+        </NavLink>
         <NavLink to="/Writepage">
           <img
             style={icon}
