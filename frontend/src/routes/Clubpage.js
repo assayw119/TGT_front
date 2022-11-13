@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '../component/Navbar';
 import '../static/css/grid.css';
 import Calendar from 'react-calendar';
@@ -7,8 +7,23 @@ import moment from 'moment';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Calendar_part from '../component/Calendar';
+import axios from 'axios';
 function Clubpage() {
   const { club_id } = useParams();
+  const [club, setClub] = useState();
+  const get_club = async () => {
+    try {
+      await axios.get(`http://127.0.0.1:8000/club/${club_id}`).then(res => {
+        console.log(res);
+        setClub(res.data);
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    get_club();
+  }, [club_id]);
   return (
     <>
       <Navbar />
@@ -17,7 +32,7 @@ function Clubpage() {
       `}
       </style>
       <div className="clubpage_container container">
-        <div className="clubpage_item"></div>
+        <div className="clubpage_item">{club.name}</div>
         <div className="clubpage_item"></div>
         <div className="clubpage_item">
           <Calendar_part />
