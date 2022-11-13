@@ -2,7 +2,10 @@
   font-family: 'DMSans';
   src: url('./font/gmarket_medium.TTF');
 }
-
+@font-face {
+  font-family: 'DMSans_B';
+  src: url('./font/gmarket_bold.TTF');
+}
 @font-face {
   font-family: 'logo';
   src: url('./font/LexendZetta-Bold.ttf');

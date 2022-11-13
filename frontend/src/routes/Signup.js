@@ -96,6 +96,8 @@ function Signup(props) {
                     name="username"
                     value={username}
                     onChange={onChange}
+                    required
+                    autoComplete="current-username"
                   />
                 </div>
 
@@ -112,6 +114,8 @@ function Signup(props) {
                     name="password"
                     value={password}
                     onChange={onChange}
+                    required
+                    autoComplete="current-password"
                   />
                 </div>
               </form>
@@ -129,6 +133,7 @@ function Signup(props) {
                   name="email"
                   value={email}
                   onChange={onChange}
+                  required
                 />
               </div>
             </div>
