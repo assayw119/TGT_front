@@ -13,7 +13,9 @@ function Club_introduce({
   post,
   user,
   intro,
+  image,
 }) {
+  const imageUrl = 'http://127.0.0.1:8000' + image;
   return (
     <>
       <div className="post_list_item">
@@ -21,7 +23,7 @@ function Club_introduce({
         {/* <section>{id}</section> */}
         <section
           className={style.club_image}
-          style={{ backgroundImage: `url(${post})` }}
+          style={{ backgroundImage: `url(${imageUrl})` }}
         ></section>
         <div className={style.club_contents}>
           <section className={style.club_title}>{title}</section>

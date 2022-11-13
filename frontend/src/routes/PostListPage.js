@@ -122,6 +122,7 @@ function PostListPage() {
               created_at={club.created_at}
               updated_at={club.updated_at}
               post={club.post}
+              image={club.image}
               user={club.user}
               intro={club.introduce}
             />
