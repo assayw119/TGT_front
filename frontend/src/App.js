@@ -8,8 +8,8 @@ import Writepage from './routes/Writepage';
 import Signup from './routes/Signup';
 import Signup2 from './routes/Signup2';
 import axios from 'axios';
-import Postdetail from './component/Postdetail';
-
+import Postdetail from './component/PostListPage/PostDetail';
+import PostDetailPage from './routes/PostDetailPage';
 function App() {
   const token = localStorage.getItem('token');
 
@@ -20,6 +20,7 @@ function App() {
         <Routes>
           <Route path="/Mainpage" element={<Mainpage />}></Route>
           <Route path="/PostList" element={<PostListPage />}></Route>
+          <Route path="/PostList/:club_id" element={<PostDetailPage />}></Route>
           <Route path="/Clubpage" element={<Clubpage />}></Route>
           <Route path="/Writepage" element={<Writepage />}></Route>
           <Route path="/" element={<Login />}></Route>
