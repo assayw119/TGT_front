@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import Modal from './Modal';
 function Navbar(props) {
   const logo = `${process.env.PUBLIC_URL + '/images/logo.png'}`;
   const mainpage = `${process.env.PUBLIC_URL + '/images/Mainpage.png'}`;
@@ -17,11 +18,22 @@ function Navbar(props) {
   const [clubList, setClubList] = useState([]);
 
   const [modal, setModal] = useState(false);
+  const [user_club_list, setUser_club_list] = useState([]);
 
   useEffect(() => {
     console.log(modal);
   }, [modal]);
   const outside = useRef();
+  const get_profile = async () => {
+    try {
+      await axios.get('http://127.0.0.1:8000/accounts/myprofile').then(res => {
+        setUser_club_list(res.data.user_club_list);
+        console.log(res.data.user_club_list);
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <>
       <Navbar_style>
@@ -45,14 +57,20 @@ function Navbar(props) {
             alt="clublist"
           />
         </NavLink>
-        <NavLink to="/Clubpage">
+        <div>
+          {modal && <Modal club={user_club_list} />}
+
           <img
             style={icon}
             src={clubpage}
             className="clubpage"
             alt="clubpage"
+            onClick={() => {
+              setModal(!modal);
+              get_profile();
+            }}
           />
-        </NavLink>
+        </div>
         <NavLink to="/Writepage">
           <img
             style={icon}
