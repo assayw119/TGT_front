@@ -57,7 +57,7 @@ function Postdetail({
               <div className="club_c">
                 <section className="club_title2">{title}</section>
                 <div className="detail_btn_btn">
-                  <button className="detail_btn" onClick={post_enroll()}>
+                  <button className="detail_btn" onClick={() => post_enroll()}>
                     클럽 가입하기
                   </button>
                 </div>
