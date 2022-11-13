@@ -4,14 +4,44 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 function Signup2(props) {
   const [image, setImage] = useState('');
-  useEffect(() => {
-    console.log(image);
-  }, [image]);
+  const [user_image, setUserImage] = useState('');
+  const [content, setContent] = useState('');
+  const navigate = useNavigate();
+  useEffect(() => {}, [content, image]);
+
+  const onchange_content = e => {
+    const content = e.target.value;
+    setContent(content);
+  };
+
   const addImage = e => {
     const images = e.target.files;
+    setUserImage(images);
     const ImageURL = URL.createObjectURL(images[0]);
     setImage(ImageURL);
   };
+
+  const post_profile = async e => {
+    e.preventDefault();
+    let formData = new FormData();
+
+    formData.append('user_image', user_image[0]);
+    formData.append('content', content);
+
+    await axios
+      .patch('http://127.0.0.1:8000/accounts/profile_update', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
+      .then(function (res) {
+        navigate('/Mainpage');
+      })
+      .catch(function (err) {
+        console.log(err, 'post 실패');
+      });
+  };
+
   return (
     <>
       <div className="login_container_container">
@@ -41,33 +71,41 @@ function Signup2(props) {
                 ></div>
               )}
             </div>
-            <div className="signup2_input">
-              <label className="input-file-button" for="input-file">
-                <img
-                  src="images/post_picture.png"
-                  className="post_icon"
-                  alt=""
+            <form>
+              <div className="signup2_input">
+                <label className="input-file-button" htmlFor="input-file">
+                  <img
+                    src="images/post_picture.png"
+                    className="post_icon"
+                    alt=""
+                  />
+                  사진 찾아보기
+                </label>
+                <input
+                  type="file"
+                  id="input-file"
+                  style={{ display: 'none' }}
+                  accept="image/*"
+                  onChange={addImage}
                 />
-                사진 찾아보기
-              </label>
-              <input
-                type="file"
-                id="input-file"
-                style={{ display: 'none' }}
-                accept="image/*"
-                onChange={addImage}
-              />
-            </div>
-            <div className="signup2_input" style={{ flexDirection: 'column' }}>
-              <label className="label_style">한 줄 소개</label>
-              <input
-                type="text"
-                placeholder="한 줄 소개를 작성해주세요!"
-                className="one_introduce"
-              />
-            </div>
+              </div>
+              <div
+                className="signup2_input"
+                style={{ flexDirection: 'column' }}
+              >
+                <label className="label_style">한 줄 소개</label>
+                <input
+                  type="text"
+                  placeholder="한 줄 소개를 작성해주세요!"
+                  className="one_introduce"
+                  onChange={onchange_content}
+                />
+              </div>
+            </form>
             <div className="signup2_input">
-              <button className="signup2_btn">프로필 등록하기</button>
+              <button className="signup2_btn" onClick={post_profile}>
+                프로필 등록하기
+              </button>
             </div>
           </div>
         </section>

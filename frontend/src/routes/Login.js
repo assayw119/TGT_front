@@ -64,37 +64,39 @@ function Login(props) {
 
           <div className="login_box">
             <div className="login_input">
-              <div className="login_id">
-                <img
-                  src="images/login_id_icon.png"
-                  className="loginpage_icon"
-                  alt=""
-                />
-                <input
-                  type="text"
-                  className="input"
-                  placeholder="아이디"
-                  name="username"
-                  value={username}
-                  onChange={onChange}
-                />
-              </div>
+              <form>
+                <div className="login_id">
+                  <img
+                    src="images/login_id_icon.png"
+                    className="loginpage_icon"
+                    alt=""
+                  />
+                  <input
+                    type="text"
+                    className="input"
+                    placeholder="아이디"
+                    name="username"
+                    value={username}
+                    onChange={onChange}
+                  />
+                </div>
 
-              <div className="login_pwd">
-                <img
-                  src="images/login_pwd_icon.png"
-                  className="loginpage_icon"
-                  alt=""
-                />
-                <input
-                  type="password"
-                  className="input"
-                  placeholder="비밀번호"
-                  name="password"
-                  value={password}
-                  onChange={onChange}
-                />
-              </div>
+                <div className="login_pwd">
+                  <img
+                    src="images/login_pwd_icon.png"
+                    className="loginpage_icon"
+                    alt=""
+                  />
+                  <input
+                    type="password"
+                    className="input"
+                    placeholder="비밀번호"
+                    name="password"
+                    value={password}
+                    onChange={onChange}
+                  />
+                </div>
+              </form>
             </div>
 
             <div className="login_btn_btn">
