@@ -22,7 +22,7 @@ function App() {
           <Route path="/Mainpage" element={<Mainpage />}></Route>
           <Route path="/PostList" element={<PostListPage />}></Route>
           <Route path="/PostList/:club_id" element={<PostDetailPage />}></Route>
-          <Route path="/Clubpage" element={<Clubpage />}></Route>
+          <Route path="/Clubpage/:club_id" element={<Clubpage />}></Route>
           <Route path="/Writepage" element={<Writepage />}></Route>
           <Route path="/" element={<Login />}></Route>
           <Route path="/Logout" element={<Logout />}></Route>
