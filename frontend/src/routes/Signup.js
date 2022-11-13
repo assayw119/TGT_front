@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import React, { useEffect, useState } from 'react';
 import '../static/css/login.css';
 import { useNavigate } from 'react-router-dom';
@@ -58,7 +59,19 @@ function Signup(props) {
           console.log(res);
         });
     } catch (err) {
-      console.log(err);
+      const errormessage = [];
+      err.response.data.email != undefined
+        ? errormessage.push('email: ' + err.response.data.email)
+        : null;
+      err.response.data.username != undefined
+        ? errormessage.push('username : ' + err.response.data.username)
+        : null;
+      err.response.data.password != undefined
+        ? errormessage.push('password : ' + err.response.data.password)
+        : null;
+      errormessage.length == 0
+        ? alert('새로고침 후 다시 시도해보세요')
+        : alert(errormessage.join('\n'));
     }
   };
   return (
