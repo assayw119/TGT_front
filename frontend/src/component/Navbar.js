@@ -35,17 +35,23 @@ function Navbar(props) {
     <>
       <Navbar_style>
         <NavLink to="/Mainpage">
-          <img src="images/logo.png" style={image_style} />
+          <img src="images/logo.png" style={image_style} alt="logo" />
           <img src="images/line.png" style={line} />
         </NavLink>
         <NavLink to="/Mainpage">
-          <img src="images/Mainpage.png" style={icon} className="mainpage" />
+          <img
+            src="images/Mainpage.png"
+            style={icon}
+            className="mainpage"
+            alt="mainpage"
+          />
         </NavLink>
         <NavLink to="/Postlist">
           <img
             src="images/Clublistpage.png"
             style={icon}
             className="postlist"
+            alt="clublist"
           />
         </NavLink>
         {/* <NavLink to="/Clubpage"> */}
@@ -54,16 +60,31 @@ function Navbar(props) {
             setView(!view);
           }}
         >
-          <img style={icon} src="images/Clubpage.png" className="clubpage" />
+          <img
+            style={icon}
+            src="images/Clubpage.png"
+            className="clubpage"
+            alt="clubpage"
+          />
           {view && <Dropdown />}
         </div>
 
         {/* </NavLink> */}
         <NavLink to="/Writepage">
-          <img style={icon} src="images/Writepage.png" className="writepage" />
+          <img
+            style={icon}
+            src="images/Writepage.png"
+            className="writepage"
+            alt="writepage"
+          />
         </NavLink>
         <NavLink to="/Logout">
-          <img src="images/logout.png" style={logout} className="logout" />
+          <img
+            src="images/logout.png"
+            style={logout}
+            className="logout"
+            alt="logout"
+          />
         </NavLink>
       </Navbar_style>
     </>
