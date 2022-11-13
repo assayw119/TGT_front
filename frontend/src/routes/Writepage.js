@@ -3,19 +3,18 @@ import Navbar from '../component/Navbar';
 import '../static/css/writepage.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { useForm } from "react-hook-form";
 
 function Writepage(props) {
   const navigate = useNavigate();
-  
+
   const [form, setForm] = useState({
     name: '',
     introduce: '',
-    content:'',
-    howto:'',
-    start_date:'',
-    end_date:'',
-    image:'',
+    content: '',
+    howto: '',
+    start_date: '',
+    end_date: '',
+    image: '',
   });
 
   const onChange = e => {
@@ -25,38 +24,37 @@ function Writepage(props) {
       [name]: value,
     });
   };
-  
+
   //폼 저장된 내용 확인
   useEffect(() => {
     // console.log(form);
-  },[form]);
+  }, [form]);
 
-  const Post_club = async (e) => {
+  const Post_club = async e => {
     e.preventDefault();
     let formData = new FormData();
 
-    formData.append("name", form.name);
-    formData.append("introduce", form.introduce);
-    formData.append("content", form.content);
-    formData.append("howto", form.howto);
-    formData.append("start_date", form.start_date);
-    formData.append("end_date", form.end_date);
-    formData.append("image", form.image);
+    formData.append('name', form.name);
+    formData.append('introduce', form.introduce);
+    formData.append('content', form.content);
+    formData.append('howto', form.howto);
+    formData.append('start_date', form.start_date);
+    formData.append('end_date', form.end_date);
+    formData.append('image', form.image);
 
     await axios
-        .post("http://127.0.0.1:8000/club/", formData, {
-            headers: {
-                "Content-Type": "multipart/form-data",
-            },
-        })
-        .then(function (res) {
-            navigate("/PostList");
-        })
-        .catch(function (err) {
-            console.log(err, "post 실패");
-        });
-       };
-    
+      .post('http://127.0.0.1:8000/club/', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
+      .then(function (res) {
+        navigate('/PostList');
+      })
+      .catch(function (err) {
+        console.log(err, 'post 실패');
+      });
+  };
 
   return (
     <>
@@ -80,7 +78,12 @@ function Writepage(props) {
                 onChange={onChange}
               />
 
-              <select className="select" name="category" value={form.category} onChange={onChange}>
+              <select
+                className="select"
+                name="category"
+                value={form.category}
+                onChange={onChange}
+              >
                 <option disabled selected>
                   카테고리 선택
                 </option>
@@ -110,9 +113,9 @@ function Writepage(props) {
                   className="post_icon"
                   alt=""
                 />
-                <input 
-                  type="date" 
-                  className="wri_deadline" 
+                <input
+                  type="date"
+                  className="wri_deadline"
                   name="start_date"
                   value={form.start_date}
                   onChange={onChange}
@@ -121,19 +124,19 @@ function Writepage(props) {
                 <div>-</div>
 
                 <input
-                 type="date"
-                 className="wri_deadline"
-                 name="end_date"
-                 value={form.end_date}
-                 onChange={onChange}
-                 />
+                  type="date"
+                  className="wri_deadline"
+                  name="end_date"
+                  value={form.end_date}
+                  onChange={onChange}
+                />
               </div>
 
               <img src="images/post_picture.png" className="post_icon" alt="" />
               <label className="input-file-button" for="input-file">
                 대표사진 추가
               </label>
-                <input
+              <input
                 type="file"
                 accept="image/*"
                 name="image"
@@ -141,7 +144,7 @@ function Writepage(props) {
                 style={{ display: 'none' }}
                 onChange={onChange}
                 value={form.image}
-                />
+              />
             </section>
 
             <div className="write_box">
@@ -170,7 +173,9 @@ function Writepage(props) {
             </div>
 
             <div className="write_enroll">
-              <button className="enroll_btn" onClick={Post_club}>등록하기</button>
+              <button className="enroll_btn" onClick={Post_club}>
+                등록하기
+              </button>
             </div>
           </div>
         </div>
