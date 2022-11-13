@@ -11,6 +11,7 @@ import axios from 'axios';
 
 function App() {
   const token = localStorage.getItem('token');
+
   axios.defaults.headers.common['Authorization'] = token ? `${token}` : null;
   return (
     <div className="App">

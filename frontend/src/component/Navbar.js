@@ -3,8 +3,34 @@
 import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import Dropdown from './Dropdown';
 function Navbar(props) {
+  //검색창, 모달창 밖에 클릭하면꺼지도록
+  function useOutSideRef(funct, close_button) {
+    const ref = useRef(null);
+    const [searchResult, setsearchResult] = useState([]);
+
+    useEffect(() => {
+      function handleClickOutside(event) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          funct(false);
+        } else if (!close_button) {
+          funct(false);
+        } else {
+          funct(true);
+        }
+      }
+      document.addEventListener('click', handleClickOutside);
+
+      return () => {
+        document.removeEventListener('click', handleClickOutside);
+      };
+    });
+
+    return ref;
+  }
+  const [view, setView] = useState(false);
   return (
     <>
       <Navbar_style>
@@ -22,9 +48,17 @@ function Navbar(props) {
             className="postlist"
           />
         </NavLink>
-        <NavLink to="/Clubpage">
+        {/* <NavLink to="/Clubpage"> */}
+        <div
+          onClick={() => {
+            setView(!view);
+          }}
+        >
           <img style={icon} src="images/Clubpage.png" className="clubpage" />
-        </NavLink>
+          {view && <Dropdown />}
+        </div>
+
+        {/* </NavLink> */}
         <NavLink to="/Writepage">
           <img style={icon} src="images/Writepage.png" className="writepage" />
         </NavLink>
