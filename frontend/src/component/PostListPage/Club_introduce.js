@@ -1,5 +1,5 @@
 import React from 'react';
-import style from '../static/css/post_list.module.css';
+import style from '../../static/css/post_list.module.css';
 
 function Club_introduce({
   id,

@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-pascal-case */
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import Club_introduce from '../component/Club_introduce';
+import Club_introduce from '../component/PostListPage/Club_introduce';
 import Navbar from '../component/Navbar';
 import '../static/css/grid.css';
 import style from '../static/css/post_list.module.css';
