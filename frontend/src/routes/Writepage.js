@@ -59,7 +59,7 @@ function Writepage(props) {
       })
       .then(function (res) {
         console.log('post 성공');
-        // navigate('/PostList');
+        navigate('/PostList');
       })
       .catch(function (err) {
         console.log(err, 'post 실패');
