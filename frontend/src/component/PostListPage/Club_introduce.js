@@ -1,6 +1,6 @@
 import React from 'react';
 import style from '../../static/css/post_list.module.css';
-
+import { useNavigate } from 'react-router-dom';
 function Club_introduce({
   id,
   title,
@@ -16,6 +16,8 @@ function Club_introduce({
   image,
 }) {
   const imageUrl = 'http://127.0.0.1:8000' + image;
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="post_list_item">
@@ -29,7 +31,14 @@ function Club_introduce({
           <section className={style.club_title}>{title}</section>
           <section className={style.club_intro}>{intro}</section>
           <section className={style.club_user}>{user}</section>
-          <section className={style.club_detail}>자세히보기</section>
+          <section
+            className={style.club_detail}
+            onClick={() => {
+              navigate(`/PostList/${id}`);
+            }}
+          >
+            자세히보기
+          </section>
           <img className={style.club_people} src="images/club_people.png"></img>
         </div>
       </div>

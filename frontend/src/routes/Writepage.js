@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import React, { useEffect, useState } from 'react';
 import Navbar from '../component/Navbar';
 import '../static/css/writepage.css';
@@ -32,8 +33,8 @@ function Writepage(props) {
   //폼 저장된 내용 확인
   useEffect(() => {
     // console.log(form);
-    console.log(form);
-    console.log(image);
+    // console.log(form);
+    // console.log(image);
   }, [form, image]);
 
   const Post_club = async e => {
@@ -48,9 +49,9 @@ function Writepage(props) {
     formData.append('start_date', form.start_date);
     formData.append('end_date', form.end_date);
     formData.append('image', image);
-    for (let key of formData.keys()) {
-      console.log(key, ':', formData.get(key));
-    }
+    // for (let key of formData.keys()) {
+    //   console.log(key, ':', formData.get(key));
+    // }
     await axios
       .post('http://127.0.0.1:8000/club/', formData, {
         headers: {
@@ -63,6 +64,33 @@ function Writepage(props) {
       })
       .catch(function (err) {
         console.log(err, 'post 실패');
+        const errormessage = [];
+        err.response.data.name != undefined
+          ? errormessage.push('제목 : ' + err.response.data.name)
+          : null;
+        err.response.data.introduce != undefined
+          ? errormessage.push('한줄 소개 : ' + err.response.data.introduce)
+          : null;
+        err.response.data.content != undefined
+          ? errormessage.push('클럽소개: ' + err.response.data.content)
+          : null;
+        err.response.data.start_date != undefined
+          ? errormessage.push('시작일 : ' + err.response.data.start_date)
+          : null;
+        err.response.data.end_date != undefined
+          ? errormessage.push('마지막일 : ' + err.response.data.end_date)
+          : null;
+        err.response.data.howto != undefined
+          ? errormessage.push('인증방법 : ' + err.response.data.howto)
+          : null;
+
+        err.response.data.image != undefined
+          ? errormessage.push('이미지 : ' + '이미지는 필수입니다.')
+          : null;
+
+        errormessage.length === 0
+          ? alert('카테고리 선택은 필수입니다')
+          : alert(errormessage.join('\n'));
       });
   };
 
