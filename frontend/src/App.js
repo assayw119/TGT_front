@@ -8,6 +8,7 @@ import Writepage from './routes/Writepage';
 import Signup from './routes/Signup';
 import Signup2 from './routes/Signup2';
 import axios from 'axios';
+
 function App() {
   const token = localStorage.getItem('token');
 

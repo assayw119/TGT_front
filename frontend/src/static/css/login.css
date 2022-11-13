@@ -196,7 +196,7 @@
   font-weight: 600;
 }
 
-.input-file-button {
+.input-file-button2 {
   box-sizing: border-box;
   display: flex;
   line-height: 16px;
@@ -204,6 +204,7 @@
   right: 10vmin;
   width: 15vmin;
   opacity: 0.5;
+  align-items: center;
 }
 
 .label_style {
