@@ -8,6 +8,8 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Calendar_part from '../component/Calendar';
 import axios from 'axios';
+import Experience_Post from '../component/Clubpage/Experience_Post';
+import Todo from '../component/Mainpage/Todo';
 function Clubpage() {
   const { club_id } = useParams();
   const [club, setClub] = useState('');
@@ -36,11 +38,15 @@ function Clubpage() {
       </style>
       <div className="clubpage_container container">
         <div className="clubpage_item">{club.name}</div>
-        <div className="clubpage_item"></div>
+        <div className="clubpage_item">
+          <Todo />
+        </div>
         <div className="clubpage_item">
           <Calendar_part />
         </div>
-        <div className="clubpage_item"></div>
+        <div className="clubpage_item">
+          <Experience_Post />
+        </div>
       </div>
     </>
   );
