@@ -54,7 +54,7 @@ function Mainpage(props) {
         </div>
         <div className="item calendar">
           <Calendar_part />
-          <Memo />
+          <Memo my_memo={profile_info2.memo} />
         </div>
         <div className="item todo">
           <Todo />
