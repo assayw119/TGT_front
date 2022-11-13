@@ -10,7 +10,7 @@ import Calendar_part from '../component/Calendar';
 import axios from 'axios';
 function Clubpage() {
   const { club_id } = useParams();
-  const [club, setClub] = useState();
+  const [club, setClub] = useState('');
   const get_club = async () => {
     try {
       await axios.get(`http://127.0.0.1:8000/club/${club_id}`).then(res => {
@@ -21,6 +21,9 @@ function Clubpage() {
       console.log(err);
     }
   };
+  useEffect(() => {
+    get_club();
+  }, []);
   useEffect(() => {
     get_club();
   }, [club_id]);
