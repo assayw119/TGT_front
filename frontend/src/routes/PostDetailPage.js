@@ -4,6 +4,7 @@ import Navbar from '../component/Navbar';
 import '../static/css/grid.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import Postdetail from '../component/PostListPage/PostDetail';
 function PostDetailPage(props) {
   const [club, setClub] = useState('');
   const { club_id } = useParams();
@@ -21,12 +22,22 @@ function PostDetailPage(props) {
       console.log(err);
     }
   };
+
+  const category_list = ['hobby', 'study', 'daily', 'exercise', 'etc'];
+  const category_list_ko = ['취미/교양', '스터디', '일상', '운동', '기타'];
   return (
     <>
-      <Navbar />
-      <div className="container" style={{ backgroundolor: 'white' }}>
-        테스트{club_id}
-      </div>
+      <Postdetail
+        id={club.id}
+        title={club.title}
+        content={club.content}
+        category={category_list_ko[category_list.indexOf(club.category)]}
+        howto={club.howto}
+        user={club.user}
+        start_date={club.start_date}
+        end_date={club.end_date}
+        image={club.image}
+      />
     </>
   );
 }
