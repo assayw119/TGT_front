@@ -73,7 +73,7 @@ function Signup2(props) {
             </div>
             <form>
               <div className="signup2_input">
-                <label className="input-file-button" htmlFor="input-file">
+                <label className="input-file-button2" htmlFor="input-file">
                   <img
                     src="images/post_picture.png"
                     className="post_icon"
