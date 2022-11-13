@@ -7,6 +7,14 @@ import { useState, useEffect, useRef } from 'react';
 import Dropdown from './Dropdown';
 function Navbar(props) {
   //검색창, 모달창 밖에 클릭하면꺼지도록
+  const logo = `${process.env.PUBLIC_URL + '/images/logo.png'}`;
+  const mainpage = `${process.env.PUBLIC_URL + '/images/Mainpage.png'}`;
+  const line_img = `${process.env.PUBLIC_URL + '/images/line.png'}`;
+  const clubpage = `${process.env.PUBLIC_URL + '/images/Clubpage.png'}`;
+  const writepage = `${process.env.PUBLIC_URL + '/images/Writepage.png'}`;
+  const clublistpage = `${process.env.PUBLIC_URL + '/images/Clublistpage.png'}`;
+  const logout_img = `${process.env.PUBLIC_URL + '/images/Logout.png'}`;
+
   function useOutSideRef(funct, close_button) {
     const ref = useRef(null);
     const [searchResult, setsearchResult] = useState([]);
@@ -35,12 +43,12 @@ function Navbar(props) {
     <>
       <Navbar_style>
         <NavLink to="/Mainpage">
-          <img src="images/logo.png" style={image_style} alt="logo" />
-          <img src="images/line.png" style={line} />
+          <img src={logo} style={image_style} alt="logo" />
+          <img src={line_img} style={line} />
         </NavLink>
         <NavLink to="/Mainpage">
           <img
-            src="images/Mainpage.png"
+            src={mainpage}
             style={icon}
             className="mainpage"
             alt="mainpage"
@@ -48,7 +56,7 @@ function Navbar(props) {
         </NavLink>
         <NavLink to="/Postlist">
           <img
-            src="images/Clublistpage.png"
+            src={clublistpage}
             style={icon}
             className="postlist"
             alt="clublist"
@@ -62,7 +70,7 @@ function Navbar(props) {
         >
           <img
             style={icon}
-            src="images/Clubpage.png"
+            src={clubpage}
             className="clubpage"
             alt="clubpage"
           />
@@ -73,14 +81,14 @@ function Navbar(props) {
         <NavLink to="/Writepage">
           <img
             style={icon}
-            src="images/Writepage.png"
+            src={writepage}
             className="writepage"
             alt="writepage"
           />
         </NavLink>
         <NavLink to="/Logout">
           <img
-            src="images/logout.png"
+            src={logout_img}
             style={logout}
             className="logout"
             alt="logout"

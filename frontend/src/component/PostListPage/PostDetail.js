@@ -19,6 +19,11 @@ function Postdetail({
   end_date,
   image,
 }) {
+  const club_people = `${process.env.PUBLIC_URL + '/images/club_people.png'}`;
+  const detail_calendar_icon = `${
+    process.env.PUBLIC_URL + '/images/detail_calender.png'
+  }`;
+
   const imageUrl = 'http://127.0.0.1:8000' + image;
   return (
     <>
@@ -46,19 +51,12 @@ function Postdetail({
               </div>
 
               <div className="detail_row">
-                <img
-                  className="detail_image"
-                  src="images/club_people.png"
-                  alt=""
-                />
+                <img className="detail_image" src={club_people} alt="" />
                 {user}
               </div>
 
               <div className="detail_row">
-                <img
-                  className="detail_image"
-                  src="images/detail_calender.png"
-                />
+                <img className="detail_image" src={detail_calendar_icon} />
                 {start_date}
                 <div>~</div>
                 {end_date}
