@@ -6,12 +6,28 @@ import Navbar from '../component/Navbar';
 import '../static/css/grid.css';
 import style from '../static/css/post_list.module.css';
 import { useState } from 'react';
+import axios from 'axios';
 function PostListPage() {
   const [selected_nav, setselected_nav] = useState(0);
   useEffect(() => {
-    console.log(selected_nav);
-  }, [selected_nav]);
-  const category_list = ['취미/교양', '스터디', '일상', '운동', '기타'];
+    get_club_list();
+  }, []);
+
+  const [club_list, setClubList] = useState([]);
+  const get_club_list = async () => {
+    try {
+      await axios.get('http://127.0.0.1:8000/club/').then(res => {
+        console.log(res);
+        setClubList(res.data);
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const category_list = ['hobby', 'study', 'daily', 'exercise', 'etc'];
+  const category_list_ko = ['취미/교양', '스터디', '일상', '운동', '기타'];
+
   return (
     <>
       <Navbar />
@@ -100,7 +116,7 @@ function PostListPage() {
               id={club.id}
               title={club.name}
               content={club.content}
-              category={club.category}
+              category={category_list_ko[category_list.indexOf(club.category)]}
               date={club.date}
               howto={club.howto}
               created_at={club.created_at}
@@ -116,201 +132,3 @@ function PostListPage() {
 }
 
 export default PostListPage;
-
-const club_list = [
-  {
-    id: 1,
-    name: '헬린이들',
-    introduce: '매주1회씩 자유롭게 뛰고 인증해요!',
-    content: 'content1',
-    category: '운동',
-    date: '2022-10-09',
-    howto: 'howto1',
-    created_at: '2022-10-10T13:34:14.490223',
-    updated_at: '2022-10-10T13:34:14.494450',
-    post: 'images/temp/image-1.png',
-    user: [],
-  },
-  {
-    id: 2,
-    name: '클라이밍에 진심인 사람들',
-    introduce: '매주1회씩 자유롭게 뛰고 인증해요!',
-    content: '매주 1회씩 ',
-    category: '운동',
-    date: '2022-10-30',
-    howto: 'howto2',
-    created_at: '2022-10-10T13:43:50.059892',
-    updated_at: '2022-10-10T13:43:50.059910',
-    post: 'images/temp/image-2.png',
-    user: [],
-  },
-  {
-    id: 3,
-    name: '마라마라톤',
-    introduce: '매주1회씩 자유롭게 뛰고 인증해요!',
-    content: 'content2',
-    category: '운동',
-    date: '2022-10-30',
-    howto: 'howto2',
-    created_at: '2022-10-10T13:43:50.059892',
-    updated_at: '2022-10-10T13:43:50.059910',
-    post: 'images/temp/image-3.png',
-    user: [],
-  },
-  {
-    id: 4,
-    name: '런닝맨 앤 우먼',
-    introduce: '매주1회씩 자유롭게 뛰고 인증해요!',
-    content: 'content2',
-    category: '운동',
-    date: '2022-10-30',
-    howto: 'howto2',
-    created_at: '2022-10-10T13:43:50.059892',
-    updated_at: '2022-10-10T13:43:50.059910',
-    post: 'images/temp/image-4.png',
-    user: [],
-  },
-  {
-    id: 5,
-    name: '아코 필라테스',
-    introduce: '매주1회씩 자유롭게 뛰고 인증해요!',
-    content: 'content2',
-    category: '운동',
-    date: '2022-10-30',
-    howto: 'howto2',
-    created_at: '2022-10-10T13:43:50.059892',
-    updated_at: '2022-10-10T13:43:50.059910',
-    post: 'images/temp/image-5.png',
-    user: [],
-  },
-  {
-    id: 6,
-    name: '이번 겨울엔 바프',
-    content: 'content2',
-    introduce: '매주1회씩 자유롭게 뛰고 인증해요!',
-    category: '운동',
-    date: '2022-10-30',
-    howto: 'howto2',
-    created_at: '2022-10-10T13:43:50.059892',
-    updated_at: '2022-10-10T13:43:50.059910',
-    post: 'images/temp/image-6.png',
-    user: [],
-  },
-  {
-    id: 7,
-    name: '한강, 같이 뛰어요!',
-    content: 'content2',
-    introduce: '매주1회씩 자유롭게 뛰고 인증해요!',
-    category: '운동',
-    date: '2022-10-30',
-    howto: 'howto2',
-    created_at: '2022-10-10T13:43:50.059892',
-    updated_at: '2022-10-10T13:43:50.059910',
-    post: 'images/temp/image.png',
-    user: [],
-  },
-  {
-    id: 8,
-    name: '헬린이~',
-    introduce: '매주1회씩 자유롭게 뛰고 인증해요!',
-    content: 'content2',
-    category: '운동',
-    date: '2022-10-30',
-    howto: 'howto2',
-    created_at: '2022-10-10T13:43:50.059892',
-    updated_at: '2022-10-10T13:43:50.059910',
-    post: 'images/temp/image-1.png',
-    user: [],
-  },
-  {
-    id: 9,
-    name: 'club2',
-    introduce: '매주1회씩 자유롭게 뛰고 인증해요!',
-    content: 'content2',
-    category: '취미/교양',
-    date: '2022-10-30',
-    howto: 'howto2',
-    created_at: '2022-10-10T13:43:50.059892',
-    updated_at: '2022-10-10T13:43:50.059910',
-    post: 'images/temp/image-1.png',
-    user: [],
-  },
-  {
-    id: 10,
-    name: 'club2',
-    introduce: '매주1회씩 자유롭게 뛰고 인증해요!',
-    content: 'content2',
-    category: '취미/교양',
-    date: '2022-10-30',
-    howto: 'howto2',
-    created_at: '2022-10-10T13:43:50.059892',
-    updated_at: '2022-10-10T13:43:50.059910',
-    post: 'images/temp/image-1.png',
-    user: [],
-  },
-  {
-    id: 11,
-    name: 'club1',
-    introduce: '매주1회씩 자유롭게 뛰고 인증해요!',
-    content: 'content1',
-    category: '스터디',
-    date: '2022-10-09',
-    howto: 'howto1',
-    created_at: '2022-10-10T13:34:14.490223',
-    updated_at: '2022-10-10T13:34:14.494450',
-    post: 'images/temp/image-1.png',
-    user: [],
-  },
-  {
-    id: 12,
-    name: '클라이밍에 진심인 사람들',
-    introduce: '매주1회씩 자유롭게 뛰고 인증해요!',
-    content: '매주 1회씩 ',
-    category: '취미/교양',
-    date: '2022-10-30',
-    howto: 'howto2',
-    created_at: '2022-10-10T13:43:50.059892',
-    updated_at: '2022-10-10T13:43:50.059910',
-    post: 'images/temp/image-2.png',
-    user: [],
-  },
-  {
-    id: 13,
-    name: 'club2',
-    introduce: '매주1회씩 자유롭게 뛰고 인증해요!',
-    content: 'content2',
-    category: '취미/교양',
-    date: '2022-10-30',
-    howto: 'howto2',
-    created_at: '2022-10-10T13:43:50.059892',
-    updated_at: '2022-10-10T13:43:50.059910',
-    post: 'images/temp/image-3.png',
-    user: [],
-  },
-  {
-    id: 14,
-    name: 'club2',
-    introduce: '매주1회씩 자유롭게 뛰고 인증해요!',
-    content: 'content2',
-    category: '기타',
-    date: '2022-10-30',
-    howto: 'howto2',
-    created_at: '2022-10-10T13:43:50.059892',
-    updated_at: '2022-10-10T13:43:50.059910',
-    post: 'images/temp/image-4.png',
-    user: [],
-  },
-  {
-    id: 15,
-    name: 'club2',
-    introduce: '매주1회씩 자유롭게 뛰고 인증해요!',
-    content: 'content2',
-    category: '일상',
-    date: '2022-10-30',
-    howto: 'howto2',
-    created_at: '2022-10-10T13:43:50.059892',
-    updated_at: '2022-10-10T13:43:50.059910',
-    post: 'images/temp/image-5.png',
-    user: [],
-  },
-];

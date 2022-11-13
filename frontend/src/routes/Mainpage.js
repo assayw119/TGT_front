@@ -26,12 +26,6 @@ function Mainpage(props) {
       });
     } catch (err) {
       console.log(err);
-      // //임시
-      // setProfile(temp_profile_info.profile);
-      // setUser_club_list(temp_profile_info.user_club_list);
-      // setUser_todo_list(temp_profile_info.user_todo_list);
-      // console.log(profile_info);
-      // console.log(user_club_list);
     }
   };
 

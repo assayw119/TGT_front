@@ -6,15 +6,15 @@ import { useNavigate } from 'react-router-dom';
 
 function Writepage(props) {
   const navigate = useNavigate();
-
+  const [image, setImage] = useState('');
   const [form, setForm] = useState({
     name: '',
     introduce: '',
+    category: '',
     content: '',
     howto: '',
     start_date: '',
     end_date: '',
-    image: '',
   });
 
   const onChange = e => {
@@ -25,10 +25,16 @@ function Writepage(props) {
     });
   };
 
+  const onChangeImage = e => {
+    const image = e.target.files;
+    setImage(image[0]);
+  };
   //폼 저장된 내용 확인
   useEffect(() => {
     // console.log(form);
-  }, [form]);
+    console.log(form);
+    console.log(image);
+  }, [form, image]);
 
   const Post_club = async e => {
     e.preventDefault();
@@ -37,11 +43,14 @@ function Writepage(props) {
     formData.append('name', form.name);
     formData.append('introduce', form.introduce);
     formData.append('content', form.content);
+    formData.append('category', form.category);
     formData.append('howto', form.howto);
     formData.append('start_date', form.start_date);
     formData.append('end_date', form.end_date);
-    formData.append('image', form.image);
-
+    formData.append('image', image);
+    for (let key of formData.keys()) {
+      console.log(key, ':', formData.get(key));
+    }
     await axios
       .post('http://127.0.0.1:8000/club/', formData, {
         headers: {
@@ -49,7 +58,8 @@ function Writepage(props) {
         },
       })
       .then(function (res) {
-        navigate('/PostList');
+        console.log('post 성공');
+        // navigate('/PostList');
       })
       .catch(function (err) {
         console.log(err, 'post 실패');
@@ -66,117 +76,131 @@ function Writepage(props) {
       <div className="container">
         <div className="writepage_container_container">
           <div className="write_logo">클럽모집글쓰기</div>
-
           <div className="write_content">
-            <div className="write_title">
-              <input
-                type="text"
-                className="wri_title"
-                placeholder="제목을 입력해주세요."
-                name="name"
-                value={form.name}
-                onChange={onChange}
-              />
-
-              <select
-                className="select"
-                name="category"
-                value={form.category}
-                onChange={onChange}
-              >
-                <option disabled selected>
-                  카테고리 선택
-                </option>
-                <option value="취미/교양">취미/교양</option>
-                <option value="스터디">스터디</option>
-                <option value="일상">일상</option>
-                <option value="운동">운동</option>
-                <option value="기타">기타</option>
-              </select>
-            </div>
-
-            <div className="write_intro">
-              <input
-                type="text"
-                className="wri_title_2"
-                placeholder="클럽 한줄소개를 입력해주세요."
-                name="introduce"
-                value={form.introduce}
-                onChange={onChange}
-              />
-            </div>
-
-            <section className="wri_detail">
-              <div className="write_date">
-                <img
-                  src="images/postpage_calender.png"
-                  className="post_icon"
-                  alt=""
-                />
+            <form>
+              <div className="write_title">
                 <input
-                  type="date"
-                  className="wri_deadline"
-                  name="start_date"
-                  value={form.start_date}
+                  type="text"
+                  className="wri_title"
+                  placeholder="제목을 입력해주세요."
+                  name="name"
+                  value={form.name}
                   onChange={onChange}
+                  required
                 />
 
-                <div>-</div>
-
-                <input
-                  type="date"
-                  className="wri_deadline"
-                  name="end_date"
-                  value={form.end_date}
+                <select
+                  className="select"
+                  name="category"
+                  value={form.category}
                   onChange={onChange}
+                  required
+                >
+                  <option value="" disabled="true" selected="" hidden="">
+                    카테고리 선택
+                  </option>
+                  <option value="hobby">취미/교양</option>
+                  <option value="study">스터디</option>
+                  <option value="daily">일상</option>
+                  <option value="exercise">운동</option>
+                  <option value="etc">기타</option>
+                </select>
+              </div>
+
+              <div className="write_intro">
+                <input
+                  type="text"
+                  className="wri_title_2"
+                  placeholder="클럽 한줄소개를 입력해주세요."
+                  name="introduce"
+                  value={form.introduce}
+                  onChange={onChange}
+                  required
                 />
               </div>
 
-              <img src="images/post_picture.png" className="post_icon" alt="" />
-              <label className="input-file-button" for="input-file">
-                대표사진 추가
-              </label>
-              <input
-                type="file"
-                accept="image/*"
-                name="image"
-                id="input-file"
-                style={{ display: 'none' }}
-                onChange={onChange}
-                value={form.image}
-              />
-            </section>
+              <section className="wri_detail">
+                <div className="write_date">
+                  <img
+                    src="images/postpage_calender.png"
+                    className="post_icon"
+                    alt=""
+                  />
+                  <input
+                    type="date"
+                    className="wri_deadline"
+                    name="start_date"
+                    value={form.start_date}
+                    onChange={onChange}
+                    required
+                  />
 
-            <div className="write_box">
-              <div className="write_box_title">클럽소개</div>
-              <input
-                type="text"
-                className="wri_box_box"
-                name="content"
-                value={form.content}
-                onChange={onChange}
-                placeholder="함께할 사람들을 모집할 수 있도록 클럽을 통해 달성하고자 하는 목표를 적어주세요."
-              />
-            </div>
+                  <div>-</div>
 
-            <div className="write_box">
-              <div className="write_box_title">인증방법</div>
-              <input
-                type="text"
-                className="wri_box_box"
-                name="howto"
-                value={form.howto}
-                onChange={onChange}
-                placeholder="함께 지켜나갈 규칙이 되는 구체적인 인증방법을 적어주세요.
+                  <input
+                    type="date"
+                    className="wri_deadline"
+                    name="end_date"
+                    value={form.end_date}
+                    onChange={onChange}
+                    required
+                  />
+                </div>
+
+                <img
+                  src="images/post_picture.png"
+                  className="post_icon"
+                  alt=""
+                />
+                <label className="input-file-button" htmlFor="input-file">
+                  대표사진 추가
+                </label>
+                <input
+                  type="file"
+                  accept="image/*"
+                  name="image"
+                  id="input-file"
+                  style={{ display: 'none' }}
+                  onChange={onChangeImage}
+                  value={form.image}
+                />
+              </section>
+
+              <div className="write_box">
+                <div className="write_box_title">클럽소개</div>
+                <textarea
+                  type="text"
+                  required
+                  className="wri_box_box"
+                  name="content"
+                  value={form.content}
+                  onChange={onChange}
+                  style={{ resize: 'none' }}
+                  placeholder="함께할 사람들을 모집할 수 있도록 클럽을 통해 달성하고자 하는 목표를 적어주세요."
+                />
+              </div>
+
+              <div className="write_box">
+                <div className="write_box_title">인증방법</div>
+                <textarea
+                  type="text"
+                  style={{ resize: 'none' }}
+                  required
+                  className="wri_box_box"
+                  name="howto"
+                  value={form.howto}
+                  onChange={onChange}
+                  placeholder="함께 지켜나갈 규칙이 되는 구체적인 인증방법을 적어주세요.
                                     ex) 일주일에 한번 EX포스트 올리기 / 하루달성률 60% 넘기기"
-              />
-            </div>
+                />
+              </div>
 
-            <div className="write_enroll">
-              <button className="enroll_btn" onClick={Post_club}>
-                등록하기
-              </button>
-            </div>
+              <div className="write_enroll">
+                <button className="enroll_btn" onClick={Post_club}>
+                  등록하기
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>

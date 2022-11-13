@@ -78,6 +78,7 @@ function Login(props) {
                     name="username"
                     value={username}
                     onChange={onChange}
+                    autoComplete="current-username"
                   />
                 </div>
 
@@ -87,6 +88,7 @@ function Login(props) {
                     className="loginpage_icon"
                     alt=""
                   />
+
                   <input
                     type="password"
                     className="input"
@@ -94,6 +96,7 @@ function Login(props) {
                     name="password"
                     value={password}
                     onChange={onChange}
+                    autoComplete="current-password"
                   />
                 </div>
               </form>
