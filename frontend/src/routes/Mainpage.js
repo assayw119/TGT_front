@@ -8,6 +8,7 @@ import Info from '../component/Mainpage/Info';
 import axios from 'axios';
 import Todo from '../component/Mainpage/Todo';
 import Memo from '../component/Mainpage/Memo';
+import List from '../component/Mainpage/List';
 function Mainpage(props) {
   const [result, setResult] = useState([]);
   const [profile_info, setProfile] = useState([]);
@@ -58,8 +59,9 @@ function Mainpage(props) {
         <div className="item todo">
           <Todo />
         </div>
-        <div className="item club_list"></div>
-        <div className="item achieve"></div>
+        <div className="item club_list">
+          <List />
+        </div>
       </div>
     </>
   );

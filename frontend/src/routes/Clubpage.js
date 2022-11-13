@@ -21,7 +21,7 @@ function Clubpage() {
           <Calendar_part />
         </div>
         <div className="clubpage_item"></div>
-        <div className="clubpage_item"></div>
+
       </div>
     </>
   );
