@@ -18,7 +18,23 @@ function Signup(props) {
       [name]: value,
     });
   };
-
+  const post_login = async () => {
+    const data = {
+      username: inputs.username,
+      password: inputs.password,
+    };
+    try {
+      await axios
+        .post('http://127.0.0.1:8000/accounts/login', data)
+        .then(res => {
+          localStorage.setItem('token', res.data);
+          axios.defaults.headers.common['Authorization'] = res.data;
+          localStorage.setItem('auth', true); // 로그인 설정
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  };
   useEffect(() => {
     // console.log(inputs);
   }, [inputs]);
@@ -32,12 +48,14 @@ function Signup(props) {
   };
 
   const post_signup = async () => {
+    localStorage.clear();
     try {
       await axios
         .post('http://127.0.0.1:8000/accounts/regist', inputs)
         .then(res => {
-          //   console.log(res.data);
-          navigate(`/Signup2`);
+          post_login();
+          navigate('/Signup2');
+          console.log(res);
         });
     } catch (err) {
       console.log(err);
