@@ -22,12 +22,12 @@ function Modal({ club }) {
     <div
       style={{
         boxSizing: 'border-box',
-        marginLeft: '6%',
+        marginLeft: '4%',
         position: 'fixed',
         background: 'orange',
         borderRadius: '10px',
         fontSize: '2.5vmin',
-        width: '17vmin',
+        width: '20vmin',
         padding: '3vmin',
         color: 'black',
       }}

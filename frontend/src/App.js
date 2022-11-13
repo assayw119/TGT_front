@@ -10,7 +10,7 @@ import Signup2 from './routes/Signup2';
 import axios from 'axios';
 import Postdetail from './component/PostListPage/PostDetail';
 import PostDetailPage from './routes/PostDetailPage';
-import Modal from './routes/Modal';
+import Modal from './component/Modal';
 function App() {
   const token = localStorage.getItem('token');
 
@@ -29,7 +29,6 @@ function App() {
           <Route path="/Signup" element={<Signup />}></Route>
           <Route path="/Signup2" element={<Signup2 />}></Route>
           <Route path="/Postdetail" element={<Postdetail />}></Route>
-          <Route path="/Modal" element={<Modal />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

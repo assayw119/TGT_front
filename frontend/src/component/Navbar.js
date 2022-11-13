@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import Modal from '../routes/Modal';
+import Modal from './Modal';
 function Navbar(props) {
   const logo = `${process.env.PUBLIC_URL + '/images/logo.png'}`;
   const mainpage = `${process.env.PUBLIC_URL + '/images/Mainpage.png'}`;
@@ -58,6 +58,8 @@ function Navbar(props) {
           />
         </NavLink>
         <div>
+          {modal && <Modal club={user_club_list} />}
+
           <img
             style={icon}
             src={clubpage}
@@ -68,7 +70,6 @@ function Navbar(props) {
               get_profile();
             }}
           />
-          {modal && <Modal club={user_club_list} />}
         </div>
         <NavLink to="/Writepage">
           <img
