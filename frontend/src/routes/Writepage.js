@@ -124,7 +124,7 @@ function Writepage(props) {
                   onChange={onChange}
                   required
                 >
-                  <option value="" disabled="true" selected="" hidden="">
+                  <option value="" disabled="true" selected="true">
                     카테고리 선택
                   </option>
                   <option value="hobby">취미/교양</option>
