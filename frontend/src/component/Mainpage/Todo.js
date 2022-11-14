@@ -27,18 +27,20 @@ function Todo({ date, clubs }) {
           {clubs.map(club => {
             return (
               <>
-                <ClubName>{club.name}</ClubName>
+                <Club>
+                  <ClubName>{club.name}</ClubName>
 
-                <Input
-                  placeholder="오늘의 할 일을 입력해주세요"
-                  onChange={e => {
-                    setData({ club: club.id, title: e.target.value });
-                  }}
-                ></Input>
-                <Plus_icon
-                  src="images/plus.png"
-                  onClick={post_todo}
-                ></Plus_icon>
+                  <Input
+                    placeholder="오늘의 할 일을 입력해주세요"
+                    onChange={e => {
+                      setData({ club: club.id, title: e.target.value });
+                    }}
+                  ></Input>
+                  <Plus_icon
+                    src="images/plus.png"
+                    onClick={post_todo}
+                  ></Plus_icon>
+                </Club>
                 <br />
               </>
             );
@@ -76,6 +78,9 @@ const ClubName = styled.h3`
   width: 100%;
 `;
 
+const Club = styled.div`
+  min-height: 13vmin;
+`;
 const Input = styled.input`
   box-sizing: border-box;
   background: #ffdfae;
