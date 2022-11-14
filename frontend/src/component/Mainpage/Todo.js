@@ -10,11 +10,12 @@ function Todo({ date, clubs }) {
   const [data, setData] = useState({
     club: '',
     title: '',
+    todo_date: '',
   });
 
   const post_todo = async () => {
     try {
-      await axios.post('http://127.0.0.1:8000/club/todolist', data).then();
+      await axios.post('http://127.0.0.1:8000/club/todolist/', data).then();
     } catch (err) {
       console.log(err);
     }
@@ -46,7 +47,11 @@ function Todo({ date, clubs }) {
                     <Input
                       placeholder="오늘의 할 일을 입력해주세요"
                       onChange={e => {
-                        setData({ club: club.id, title: e.target.value });
+                        setData({
+                          club: club.id,
+                          title: e.target.value,
+                          todo_date: date,
+                        });
                       }}
                     ></Input>
                     <Plus_icon

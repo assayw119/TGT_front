@@ -89,10 +89,7 @@ function Mainpage(props) {
           />
         </div>
         <div className="item club_list">
-          <List
-            list_image={user_club_list.image}
-            clubs={user_club_list}
-          />
+          <List clubs={user_club_list} />
         </div>
       </div>
     </>
