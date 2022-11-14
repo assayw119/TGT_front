@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-
+import { useNavigate } from 'react-router-dom';
 function List({ clubs }) {
   //배경색 변경
   //function Mycolor() {
   //  var element = document.getElementById("myID");
   //  element.style.backgroundColor='#FFCC80';
   //};
+  const navigate = useNavigate();
   return (
     <>
       <List_div>
@@ -28,7 +29,13 @@ function List({ clubs }) {
             };
             return (
               <>
-                <List_section id="myID" onClick="Mycolor()">
+                <List_section
+                  id="myID"
+                  // onClick="Mycolor()"
+                  onClick={() => {
+                    navigate(`/Clubpage/${club.id}`);
+                  }}
+                >
                   <Club_img style={image_style2}></Club_img>
                   <List_box>
                     <Club_name>{club.name}</Club_name>
