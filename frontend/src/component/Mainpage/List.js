@@ -20,7 +20,6 @@ function List({clubs, list_image}) {
   //  var element = document.getElementById("myID");
   //  element.style.backgroundColor='#FFCC80';
   //};
-
   return (
     <>
       <List_div>
