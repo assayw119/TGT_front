@@ -22,13 +22,14 @@ function Navbar(props) {
 
   useEffect(() => {
     console.log(modal);
+    console.log(user_club_list);
   }, [modal]);
   const outside = useRef();
   const get_profile = async () => {
     try {
       await axios.get('http://127.0.0.1:8000/accounts/myprofile').then(res => {
         setUser_club_list(res.data.user_club_list);
-        console.log(res.data.user_club_list);
+        // console.log(res.data.user_club_list);
       });
     } catch (err) {
       console.log(err);
@@ -58,7 +59,7 @@ function Navbar(props) {
           />
         </NavLink>
         <div>
-          {modal && <Modal club={user_club_list} />}
+          {modal && <Modal key={user_club_list} club={user_club_list} />}
 
           <img
             style={icon}

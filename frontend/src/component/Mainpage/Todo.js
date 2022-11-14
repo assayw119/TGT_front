@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 function Todo({ date, clubs }) {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState([]);
 
   const [data, setData] = useState({
     club: '',
