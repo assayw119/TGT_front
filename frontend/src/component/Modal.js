@@ -22,19 +22,30 @@ function Modal({ club }) {
         color: 'black',
       }}
     >
-      {club.map(c => {
-        const onclick = () => {
-          navigate(`/Clubpage/${c.id}`);
-        };
-        return (
-          <section
-            style={{ fontWeight: 600, margin: '2vmin', cursor: 'pointer' }}
-            onClick={onclick}
-          >
-            {c.name}
-          </section>
-        );
-      })}
+      {club.length === 0 ? (
+        <section style={{ fontSize: '1.5vmin' }}>
+          아직 가입한 클럽이 없습니다.
+        </section>
+      ) : (
+        club.map(c => {
+          const onclick = () => {
+            navigate(`/Clubpage/${c.id}`);
+          };
+          return (
+            <section
+              style={{
+                fontWeight: 600,
+                fontSize: '2vmin',
+                margin: '1vmin',
+                cursor: 'pointer',
+              }}
+              onClick={onclick}
+            >
+              {c.name}
+            </section>
+          );
+        })
+      )}
     </div>
   );
 }
