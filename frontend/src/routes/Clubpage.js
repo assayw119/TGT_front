@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
 import Navbar from '../component/Navbar';
 import '../static/css/grid.css';
@@ -9,10 +10,9 @@ import { useParams } from 'react-router-dom';
 import Calendar_part from '../component/Calendar';
 import axios from 'axios';
 import Experience_Post from '../component/Clubpage/Experience_Post';
-import Todo from '../component/Mainpage/Todo';
 function Clubpage() {
   const { club_id } = useParams();
-  const [club, setClub] = useState('');
+  const [club, setClub] = useState([]);
   const get_club = async () => {
     try {
       await axios.get(`http://127.0.0.1:8000/club/${club_id}`).then(res => {
@@ -23,12 +23,10 @@ function Clubpage() {
       console.log(err);
     }
   };
+
   useEffect(() => {
     get_club();
-  }, []);
-  useEffect(() => {
-    get_club();
-  }, [club_id]);
+  }, [club_id, get_club]);
   return (
     <>
       <Navbar />
@@ -38,9 +36,7 @@ function Clubpage() {
       </style>
       <div className="clubpage_container container">
         <div className="clubpage_item">{club.name}</div>
-        <div className="clubpage_item">
-          <Todo />
-        </div>
+        <div className="clubpage_item"></div>
         <div className="clubpage_item">
           <Calendar_part />
         </div>
