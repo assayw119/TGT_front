@@ -40,7 +40,8 @@ function Postdetail({
     <>
       <Navbar />
       <style>
-        {`.postlist,.clubpage,.mainpage{opacity:0.2}
+        {`.postlist,.mainpage,.writepage{opacity:0.2}
+       
       `}
       </style>
 
