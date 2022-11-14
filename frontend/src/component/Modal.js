@@ -28,7 +28,7 @@ function Modal({ club }) {
         };
         return (
           <section
-            style={{ fontWeight: 600, margin: '1vmin', cursor: 'pointer' }}
+            style={{ fontWeight: 600, margin: '2vmin', cursor: 'pointer' }}
             onClick={onclick}
           >
             {c.name}
