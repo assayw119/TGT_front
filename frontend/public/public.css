@@ -33,4 +33,5 @@ body {
   margin-left: 6%;
   padding: 3% 12%;
   gap: 25px;
+  max-height: 100%;
 }

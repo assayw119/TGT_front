@@ -3,18 +3,24 @@ import React, { useEffect } from 'react';
 import Navbar from '../component/Navbar';
 import '../static/css/grid.css';
 import { useState } from 'react';
-import Calendar_part from '../component/Calendar';
+// import Calendar_part from '../component/Calendar';
 import Info from '../component/Mainpage/Info';
 import axios from 'axios';
 import Todo from '../component/Mainpage/Todo';
 import Memo from '../component/Mainpage/Memo';
 import List from '../component/Mainpage/List';
+import Calendar from 'react-calendar';
+import '../static/css/calendar.css';
+import moment from 'moment';
 function Mainpage(props) {
   const [result, setResult] = useState([]);
   const [profile_info, setProfile] = useState([]);
   const [profile_info2, setProfile2] = useState([]);
   const [user_club_list, setUser_club_list] = useState([]);
   const [user_todo_list, setUser_todo_list] = useState([]);
+
+  //달력
+  const [value, onChange] = useState(new Date());
 
   const get_profile = async () => {
     try {
@@ -53,11 +59,34 @@ function Mainpage(props) {
           />
         </div>
         <div className="item calendar">
-          <Calendar_part />
+          <Calendar
+            onChange={onChange}
+            locale="en"
+            value={value}
+            format={(locale, date) => date.toLocaleString('en')}
+            formatMonthYear={(locale, date) =>
+              date.toLocaleString('kr', {
+                month: 'numeric',
+                year: 'numeric',
+              })
+            }
+            formatDay={(locale, date) =>
+              date.toLocaleString('en', {
+                day: 'numeric',
+              })
+            }
+            next2Label={null}
+            prev2Label={null}
+            showNeighboringMonth={false}
+          />
+
           <Memo my_memo={profile_info2.memo} />
         </div>
         <div className="item todo">
-          <Todo />
+          <Todo
+            date={moment(value).format('YYYY-MM-DD')}
+            clubs={user_club_list}
+          />
         </div>
         <div className="item club_list">
           <List />
