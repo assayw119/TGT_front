@@ -1,0 +1,111 @@
+.club_category2 {
+  font-family: 'DMSans';
+  font-size: 0.8vw;
+  box-sizing: border-box;
+  background: #ffcc80;
+  border-radius: 1vmin;
+  width: 6vw;
+  height: 3vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2vmin;
+  font-weight: 600;
+}
+.detail_con {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 50%;
+}
+.club_image2 {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  border-radius: 10px;
+  width: 100%;
+  height: 14vw;
+  margin-bottom: 2%;
+}
+.club_title2 {
+  font-family: 'DMSans';
+  font-size: 28px;
+  font-weight: 700;
+}
+.club_c {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.detail_btn {
+  background-color: #ff9900;
+  color: black;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  font-weight: 600;
+  margin-bottom: 5%;
+  padding: 2%;
+  cursor: pointer;
+  font-family: 'DMSans';
+}
+.detail_btn_btn {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  width: 30%;
+}
+.detail_row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 60%;
+  color: #737373;
+  margin-top: 1%;
+  font-size: 17px;
+  align-items: center;
+}
+
+.detail_image {
+  display: flex;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  margin-right: 2%;
+}
+.detail_box_t {
+  color: #737373;
+  font-weight: 700;
+  margin-bottom: 2%;
+  margin-top: 2%;
+  font-size: 16px;
+}
+.detail_box_box {
+  font-weight: 500;
+  margin-bottom: 1%;
+  margin-top: 1%;
+  font-size: 16px;
+  word-break: break-all;
+}
+.detail_box {
+  height: 160px;
+  overflow-x: scroll;
+}
+
+.detail_box::-webkit-scrollbar {
+  width: 6px; /* 스크롤바의 너비 */
+}
+
+.detail_box::-webkit-scrollbar-thumb {
+  height: 1px; /* 스크롤바의 길이 */
+  background: rgba(121, 121, 121, 0.8); /* 스크롤바의 색상 */
+  border-radius: 10px;
+}
+
+.detail_box::-webkit-scrollbar-track {
+  background: white; /*스크롤바 뒷 배경 색상*/
+}

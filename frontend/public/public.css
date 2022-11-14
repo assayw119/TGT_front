@@ -1,0 +1,37 @@
+@font-face {
+  font-family: 'DMSans';
+  src: url('./font/gmarket_medium.TTF');
+}
+@font-face {
+  font-family: 'DMSans_B';
+  src: url('./font/gmarket_bold.TTF');
+}
+@font-face {
+  font-family: 'logo';
+  src: url('./font/LexendZetta-Bold.ttf');
+}
+html,
+body {
+  margin: 0;
+  background-color: black;
+  height: 100%;
+  font-family: 'DMSans', sans-serif;
+}
+
+#root {
+  height: 100%;
+}
+
+.App {
+  height: 100%;
+}
+
+.container {
+  display: grid;
+  box-sizing: border-box;
+  height: 100%;
+  margin-left: 6%;
+  padding: 3% 12%;
+  gap: 25px;
+  max-height: 100%;
+}

@@ -1,0 +1,90 @@
+.nav_list {
+  font-weight: 700;
+  font-size: 1.2rem;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  /* margin: 1vw; */
+}
+
+.club_list {
+  display: flex;
+  width: 35vw;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+hr {
+  height: 40%;
+  opacity: 0.5;
+  border: 1.5px solid #000000;
+  width: 0.5vw;
+  border-width: 0;
+  background-color: #000;
+  margin: 0;
+}
+
+/* Club_introduce 컴포넌트 */
+.club_category {
+  font-family: 'DMSans';
+  font-size: 0.8vw;
+  box-sizing: border-box;
+  background: #ffcc80;
+  border-radius: 1vmin;
+  width: 6vw;
+  height: 3vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2vmin;
+}
+
+.club_image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  width: 100%;
+  height: 6vw;
+}
+
+.club_contents {
+  margin: 1.8vmin 0vmin;
+}
+
+.club_title {
+  font-weight: 700;
+  font-size: 1.1vw;
+  line-height: 26px;
+}
+.club_intro {
+  color: #000000;
+  mix-blend-mode: normal;
+  opacity: 0.4;
+  font-size: 0.75vw;
+  margin-top: 0.5vw;
+}
+
+.club_detail {
+  display: flex;
+  margin-top: 5vmin;
+  cursor: pointer;
+  color: #ff2e00;
+  font-weight: 700;
+  font-size: 0.75vw;
+  float: left;
+}
+
+.club_people {
+  display: flex;
+  text-align: right;
+  float: right;
+  margin-top: 4vmin;
+}
