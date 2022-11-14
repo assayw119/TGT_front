@@ -25,7 +25,7 @@ function Memo({ my_memo }) {
         </Title>
         <Line></Line>
         <textarea
-          placeholder={my_memo === '' ? '자신만의 목표를 세워보세요!' : null}
+          placeholder={memo === '' ? '자신만의 목표를 세워보세요!' : null}
           style={memo_input}
           onChange={e => {
             setMemo(e.target.value);

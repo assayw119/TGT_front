@@ -28,9 +28,9 @@ function Signup(props) {
       await axios
         .post('http://127.0.0.1:8000/accounts/login', data)
         .then(res => {
-          localStorage.setItem('token', res.data);
+          sessionStorage.setItem('token', res.data);
           axios.defaults.headers.common['Authorization'] = res.data;
-          localStorage.setItem('auth', true); // 로그인 설정
+          sessionStorage.setItem('auth', true); // 로그인 설정
         });
     } catch (err) {
       console.log(err);
@@ -49,7 +49,7 @@ function Signup(props) {
   };
 
   const post_signup = async () => {
-    localStorage.clear();
+    sessionStorage.clear();
     try {
       await axios
         .post('http://127.0.0.1:8000/accounts/regist', inputs)

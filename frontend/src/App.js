@@ -12,7 +12,7 @@ import Postdetail from './component/PostListPage/PostDetail';
 import PostDetailPage from './routes/PostDetailPage';
 import Modal from './component/Modal';
 function App() {
-  const token = localStorage.getItem('token');
+  const token = sessionStorage.getItem('token');
 
   axios.defaults.headers.common['Authorization'] = token ? `${token}` : null;
   return (

@@ -24,27 +24,41 @@ function Todo({ date, clubs }) {
       <Todo_div>
         <Title>To do List</Title>
         <Todo_body>
-          {clubs.map(club => {
-            return (
-              <>
-                <Club>
-                  <ClubName>{club.name}</ClubName>
+          {clubs.length === 0 ? (
+            <div
+              style={{
+                fontFamily: 'DMSans',
+                fontWeight: 600,
+                opacity: 0.6,
+                fontSize: '1.8vmin',
+                marginTop: '2vmin',
+              }}
+            >
+              등록된 클럽이 없습니다. 클럽을 먼저 가입해주세요
+            </div>
+          ) : (
+            clubs.map(club => {
+              return (
+                <>
+                  <Club>
+                    <ClubName>{club.name}</ClubName>
 
-                  <Input
-                    placeholder="오늘의 할 일을 입력해주세요"
-                    onChange={e => {
-                      setData({ club: club.id, title: e.target.value });
-                    }}
-                  ></Input>
-                  <Plus_icon
-                    src="images/plus.png"
-                    onClick={post_todo}
-                  ></Plus_icon>
-                </Club>
-                <br />
-              </>
-            );
-          })}
+                    <Input
+                      placeholder="오늘의 할 일을 입력해주세요"
+                      onChange={e => {
+                        setData({ club: club.id, title: e.target.value });
+                      }}
+                    ></Input>
+                    <Plus_icon
+                      src="images/plus.png"
+                      onClick={post_todo}
+                    ></Plus_icon>
+                  </Club>
+                  <br />
+                </>
+              );
+            })
+          )}
         </Todo_body>
       </Todo_div>
     </>
